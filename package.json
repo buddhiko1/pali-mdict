@@ -1,0 +1,18 @@
+{
+  "name": "dict",
+  "version": "1.0.0",
+  "description": "Mdx generator of pali dictionary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "ts-node ./index.ts "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "download": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/download": "^8.0.1"
+  }
+}
