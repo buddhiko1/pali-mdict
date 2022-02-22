@@ -62,7 +62,6 @@ class Ncpde {
 ${word.entry}
 <link rel="stylesheet" type="text/css" href="${this.config.cssFile}" />
 <div class="entry">${word.entry}</div>
-<br>
 <div class="grammar">${word.grammar}</div>
 <ul class="definition">${definitionItemHtml}
 </ul>
@@ -79,8 +78,8 @@ ${word.entry}
       word = <IWord>word;
       resultString += this.generateWordHtml(word);
     }
-    resultString = resultString.trimStart()
-    fs.writeFileSync(this.config.txtFile, resultString);
+    resultString = resultString.trimStart().replace(/\n/g, "\r\n");
+    fs.writeFileSync(this.config.txtFile, resultString, "utf-8");
   }
 
   async generate() {
