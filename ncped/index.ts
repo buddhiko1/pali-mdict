@@ -92,7 +92,7 @@ ${crossRefHtml}
   }
 
   async generate() {
-    // await this.downloadJsonFile();
+    await this.downloadJsonFile();
     this.generateTxtFile();
   }
 }
