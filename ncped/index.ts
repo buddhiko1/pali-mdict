@@ -10,7 +10,7 @@ interface IConfig {
 
 interface IWord {
   entry: string;
-  grammar: string;
+  grammar?: string;
   definition?: string | string[];
   xr?: string | string[];
 }
@@ -27,6 +27,7 @@ class Ncpde {
   }
 
   private generateWordHtml(word: IWord): string {
+    //
     let definitionItemHtml: string = "";
     if (word.definition) {
       if (typeof word.definition === "string") {
@@ -39,7 +40,12 @@ class Ncpde {
         }
       }
     }
+    if (definitionItemHtml) {
+      definitionItemHtml = `<ul class="definition">${definitionItemHtml}
+</ul>`;
+    }
 
+    //
     let crossRefHtml: string = "";
     if (word?.xr) {
       if (typeof word.xr === "string") {
@@ -56,17 +62,20 @@ class Ncpde {
         }
       }
     }
-    // crossRefHtml = crossRefHtml.trimStart();
+    if (crossRefHtml) {
+      crossRefHtml = `<ul class="crossRef">${crossRefHtml}
+</ul>`;
+    }
 
     return `
 ${word.entry}
 <link rel="stylesheet" type="text/css" href="${this.config.cssFile}" />
-<div class="entry">${word.entry}</div>
-<div class="grammar">${word.grammar}</div>
-<ul class="definition">${definitionItemHtml}
-</ul>
-<ul class="crossRef">${crossRefHtml}
-</ul>
+<div class="title">
+  <span class="entry">${word.entry}</span>
+  <span class="grammar">( ${word.grammar ?? ""} )</span>
+</div>
+${definitionItemHtml}
+${crossRefHtml}
 </>`;
   }
 
@@ -83,12 +92,12 @@ ${word.entry}
   }
 
   async generate() {
-    await this.downloadJsonFile();
+    // await this.downloadJsonFile();
     this.generateTxtFile();
   }
 }
 
-export default async function test() {
+export async function generateMdx() {
   let config: IConfig = {
     jsonUrl:
       "https://raw.githubusercontent.com/suttacentral/sc-data/master/dictionaries/simple/en/pli2en_ncped.json",

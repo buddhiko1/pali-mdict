@@ -1,7 +1,3 @@
-import test from "./ncped" 
+import { generateMdx as generateNcped } from "./ncped" 
 
-
-
-
-
-test()
+generateNcped();
