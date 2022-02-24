@@ -1,3 +1,6 @@
-import { generateMdx as generateNcped } from "./ncped" 
+import { generateTxtFile as generateNcpedTxtFile } from "./ncped"; 
+import { generateTxtFile as generateDppnTxtFile } from "./dppn"; 
 
-generateNcped();
+
+generateNcpedTxtFile();
+// generateDppnTxtFile();

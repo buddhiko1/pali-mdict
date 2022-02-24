@@ -43,7 +43,7 @@
   border-width: 6px 0 6px 10px;  
   display: block;  
   left: -20px;  
-  top: 16px;  
+  top: 23px;  
   position: relative;  
 }
 
@@ -53,15 +53,16 @@
 }
 
 .crossRef >li:not(:first-child) {
-  padding-left: 5px;
+  margin-left: 8px;
 }
 
 .crossRef > li > a {
   text-decoration: none;
+  display: inline-block;
+  font-size: small;
+  font-weight: lighter;
   border-radius: 5px;
   border: 1px solid maroon;
-  padding: 2px 5px;
-  width: 20px;
-  height: 15px;
+  padding: 7px;
   color: maroon
 }

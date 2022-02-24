@@ -17,7 +17,7 @@ interface IWord {
   xr?: string | string[]; // cross references
 }
 
-class Ncpde {
+class TxtGenerator {
   private config: IConfig;
 
   constructor(config: IConfig) {
@@ -30,7 +30,7 @@ class Ncpde {
 
   private generateWordHtml(word: IWord): string {
     //
-    let grammarHtml: string = ""
+    let grammarHtml: string = "";
     if (word.grammar) {
       grammarHtml = `<span class="grammar">( ${word.grammar} )</span>`;
     }
@@ -64,7 +64,7 @@ class Ncpde {
     if (xfListHtml) {
       xfListHtml = `<ul class="crossRef">${xfListHtml}\n</ul>`;
     }
-    
+
     const data = {
       entry: word.entry,
       grammarHtml: grammarHtml,
@@ -95,15 +95,15 @@ class Ncpde {
   }
 }
 
-export async function generateMdx() {
+export async function generateTxtFile() {
   let config: IConfig = {
     jsonUrl:
       "https://raw.githubusercontent.com/suttacentral/sc-data/master/dictionaries/simple/en/pli2en_ncped.json",
     jsonFile: `${__dirname}/ncpde.json`,
     txtFile: `${__dirname}/ncpde.txt`,
     templateFile: `${__dirname}/template.html`,
-    cssFileName: "ncpde.css"
+    cssFileName: "ncpde.css",
   };
-  let ncpde = new Ncpde(config);
-  ncpde.generate();
+  let generator = new TxtGenerator(config);
+  generator.generate();
 }
