@@ -24,11 +24,11 @@ class TxtGenerator {
     this.config = config;
   }
 
-  private async downloadJsonFile(): Promise<void> {
+  private async _downloadJsonFile(): Promise<void> {
     fs.writeFileSync(this.config.jsonFile, await download(this.config.jsonUrl));
   }
 
-  private generateWordHtml(word: IWord): string {
+  private _generateWordHtml(word: IWord): string {
     //
     let grammarHtml: string = "";
     if (word.grammar) {
@@ -76,13 +76,13 @@ class TxtGenerator {
     return render(templateString, data);
   }
 
-  private generateTxtFile() {
+  private _generateTxtFile() {
     let resultString: string = "";
     const data = fs.readFileSync(this.config.jsonFile);
     let jsonData = JSON.parse(data.toString());
     for (let word of jsonData) {
       word = <IWord>word;
-      resultString += this.generateWordHtml(word);
+      resultString += this._generateWordHtml(word);
     }
     // Replace LF with CRLF
     // resultString = resultString.replace(/\n/g, "\r\n");
@@ -90,8 +90,8 @@ class TxtGenerator {
   }
 
   async generate() {
-    await this.downloadJsonFile();
-    this.generateTxtFile();
+    await this._downloadJsonFile();
+    this._generateTxtFile();
   }
 }
 
@@ -99,10 +99,10 @@ export async function generateTxtFile() {
   let config: IConfig = {
     jsonUrl:
       "https://raw.githubusercontent.com/suttacentral/sc-data/master/dictionaries/simple/en/pli2en_ncped.json",
-    jsonFile: `${__dirname}/ncpde.json`,
-    txtFile: `${__dirname}/ncpde.txt`,
+    jsonFile: `${__dirname}/ncped.json`,
+    txtFile: `${__dirname}/ncped.txt`,
     templateFile: `${__dirname}/template.html`,
-    cssFileName: "ncpde.css",
+    cssFileName: "ncped.css",
   };
   let generator = new TxtGenerator(config);
   generator.generate();
