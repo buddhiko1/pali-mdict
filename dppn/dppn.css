@@ -1,5 +1,5 @@
 .word {
-  font-size: 140%;
+  font-size: 18px !important;
   color: maroon;
 }
 
@@ -36,10 +36,9 @@ p {
   padding: 15px;
   background-color: #FDE6E0;
   margin-top: 5px;
-}
-
-dd > p {
+  font-size: 14px !important;
   line-height: 25px;
+
 }
 
 .google-maps {
@@ -53,11 +52,11 @@ dd > p {
 .text .ref {
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: lighter;
   border-radius: 5px;
   border: 1px solid gray;
-  padding: 2px 4px;
+  padding: 0px 3px;
   color: gray
 }
 
