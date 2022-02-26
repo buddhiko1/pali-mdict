@@ -1,10 +1,10 @@
-## Mdx-Txt generator of Pali dictionary
+## Pali-Mdict Generator 
 ---
 ### Abbreviations
-- `dppn` : Dictionary of Pali Proper Names
-- `ncped` : New Concise Pali - English Dictionary
-- `nyana` : Nyanatiloka: Buddhist Dictionary
 - `pts` : Pali Text Society Pali - English Dictionary
+- `ncped` : New Concise Pali - English Dictionary
+- `dppn` : Dictionary of Pali Proper Names
+- `nyana` : Nyanatiloka: Buddhist Dictionary
 
 ### Install
 - npm install

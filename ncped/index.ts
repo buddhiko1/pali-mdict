@@ -1,109 +1,72 @@
 import fs from "fs";
-import download from "download";
 import { render } from "template-file";
 
-interface IConfig {
-  jsonUrl: string;
-  jsonFile: string;
-  txtFile: string;
-  templateFile: string;
-  cssFileName: string;
-}
+import { BaseGenerator } from "../common/classes";
+import { INcped } from "../common/interfaces";
 
-interface IWord {
-  entry: string;
-  grammar?: string;
-  definition?: string | string[];
-  xr?: string | string[]; // cross references
-}
-
-class TxtGenerator {
-  private config: IConfig;
-
-  constructor(config: IConfig) {
-    this.config = config;
+export class Generator extends BaseGenerator {
+  constructor(rawUrl: string, outputDir: string) {
+    const name = "ncped";
+    super(rawUrl, __dirname, name, outputDir);
   }
 
-  private async _downloadJsonFile(): Promise<void> {
-    fs.writeFileSync(this.config.jsonFile, await download(this.config.jsonUrl));
-  }
-
-  private _generateWordHtml(word: IWord): string {
+  private _generateEntryHtml(entry: INcped): string {
     //
     let grammarHtml: string = "";
-    if (word.grammar) {
-      grammarHtml = `<span class="grammar">( ${word.grammar} )</span>`;
+    if (entry.grammar) {
+      grammarHtml = `<span class="grammar">( ${entry.grammar} )</span>`;
     }
 
     //
-    let definitionListHtml: string = "";
-    if (word.definition) {
-      if (typeof word.definition === "string") {
-        definitionListHtml = `\n  <li>${word.definition}</li>`;
+    let definitionHtml: string = "";
+    if (entry.definition) {
+      if (typeof entry.definition === "string") {
+        definitionHtml = `\n  <li>${entry.definition}</li>`;
       } else {
-        for (let item of word.definition) {
-          definitionListHtml += `\n  <li>${item}</li>`;
+        for (let item of entry.definition) {
+          definitionHtml += `\n  <li>${item}</li>`;
         }
       }
     }
-    if (definitionListHtml) {
-      definitionListHtml = `<ul class="definition">${definitionListHtml}\n</ul>`;
+    if (definitionHtml) {
+      definitionHtml = `<ul class="definition">${definitionHtml}\n</ul>`;
     }
 
     //
-    let xfListHtml: string = "";
-    if (word?.xr) {
-      if (typeof word.xr === "string") {
-        xfListHtml = `\n  <li><a href="entry://${word.xr}">${word.xr}</a></li>`;
+    let xfHtml: string = "";
+    if (entry?.xr) {
+      if (typeof entry.xr === "string") {
+        xfHtml = `\n  <li><a href="entry://${entry.xr}">${entry.xr}</a></li>`;
       } else {
-        for (let item of word.xr) {
-          xfListHtml += `\n  <li><a href="entry://${item}">${item}</a></li>`;
+        for (let item of entry.xr) {
+          xfHtml += `\n  <li><a href="entry://${item}">${item}</a></li>`;
         }
       }
     }
-    if (xfListHtml) {
-      xfListHtml = `<ul class="crossRef">${xfListHtml}\n</ul>`;
+    if (xfHtml) {
+      xfHtml = `<ul class="crossRef">${xfHtml}\n</ul>`;
     }
 
     const data = {
-      entry: word.entry,
+      entry: entry.entry,
       grammarHtml: grammarHtml,
       cssFileName: this.config.cssFileName,
-      definitionListHtml: definitionListHtml,
-      xfListHtml: xfListHtml,
+      definitionHtml: definitionHtml,
+      xfHtml: xfHtml,
     };
-    const templateString = fs.readFileSync(this.config.templateFile, "utf8");
+    const templateString = fs.readFileSync(this.config.entryHtmlFile, "utf8");
     return render(templateString, data);
   }
 
-  private _generateTxtFile() {
-    let resultString: string = "";
-    const data = fs.readFileSync(this.config.jsonFile);
-    let jsonData = JSON.parse(data.toString());
-    for (let word of jsonData) {
-      word = <IWord>word;
-      resultString += this._generateWordHtml(word);
+  protected _generateHtmlStr(): string {
+    let result: string = "";
+    const rawData = fs.readFileSync(this.config.rawFile);
+    let json = JSON.parse(rawData.toString());
+    for (let entry of json) {
+      entry = <INcped>entry;
+      result += this._generateEntryHtml(entry)
+      result += "</>\r\n"; // Split string of entry
     }
-    // Replace LF with CRLF
-    // resultString = resultString.replace(/\n/g, "\r\n");
-    fs.writeFileSync(this.config.txtFile, resultString, "utf-8");
+    return result;
   }
-
-  async generate() {
-    await this._downloadJsonFile();
-    this._generateTxtFile();
-  }
-}
-
-export async function generateTxtFile() {
-  let config: IConfig = {
-    jsonUrl:
-      "https://raw.githubusercontent.com/suttacentral/sc-data/master/dictionaries/simple/en/pli2en_ncped.json",
-    jsonFile: `${__dirname}/ncped.json`,
-    txtFile: `${__dirname}/ncped.txt`,
-    templateFile: `${__dirname}/template.html`,
-    cssFileName: "ncped.css",
-  };
-  let generator = new TxtGenerator(config);
-  generator.generate();
 }

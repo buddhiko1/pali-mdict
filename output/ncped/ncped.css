@@ -1,0 +1,68 @@
+.entry {
+  font-size: 140%;
+  color: maroon;
+}
+
+.grammar {
+  color: rgb(245, 26, 216);
+  padding: 10px; 
+  font-size: small;
+  display: inline-block;
+}
+
+.definition {
+  margin: 0px 0;  
+  padding: 0 40px; 
+  list-style: none;
+}
+
+.definition > li {
+  color: #008080
+}
+
+.definition > li::before {
+  content: "";  
+  border-color: transparent maroon;  
+  border-style: solid;  
+  border-width: 6px 0 6px 10px;  
+  display: block;  
+  left: -20px;  
+  top: 17px;  
+  position: relative;  
+}
+
+.crossRef {
+  list-style: none;
+  text-decoration: none;
+}
+
+.crossRef::before {
+  content: "";  
+  border-color: transparent maroon;  
+  border-style: solid;  
+  border-width: 6px 0 6px 10px;  
+  display: block;  
+  left: -20px;  
+  top: 23px;  
+  position: relative;  
+}
+
+
+.crossRef > li {
+  display: inline-block;
+}
+
+.crossRef >li:not(:first-child) {
+  margin-left: 8px;
+}
+
+.crossRef > li > a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: small;
+  font-weight: lighter;
+  border-radius: 5px;
+  border: 1px solid maroon;
+  padding: 7px;
+  color: maroon
+}
