@@ -1,22 +1,17 @@
-// import { generateTxtFile as generateNcpedTxtFile } from "./ncped"; 
+import { Generator as NcpedGenerator } from "./ncped"; 
 import { Generator as DppnGenerator } from "./dppn"; 
-// import { generateTxtFile as generatePtsTxtFile } from "./pts"; 
+import { Generator as PtsGenerator } from "./pts"; 
 import { Command, Option } from "commander";
 
-import { URL } from "./config";
-
-// const program = new Command();
-
-enum DictEnum {
-  PTS = "pts",
-  DPPN = "dppn",
-  NCPED = "ncped",
-}
+import { URL, DictEnum } from "./config";
 
 enum PullEnum {
   YES = "y",
   NO = "n"
 }
+
+const program = new Command();
+
 
 // program
 //   .version("1.0.0")
@@ -48,7 +43,9 @@ enum PullEnum {
 //   generator.generate(downloadLastSourceData)
 // }
 
-let outDir = `${__dirname}/output`
-let generator = new DppnGenerator(URL.dppn, outDir);
-let pull = false
-generator.generate(pull)
+// let outDir = `${__dirname}/output`
+// let generator = new DppnGenerator(URL.dppn, outDir);
+// let generator = new NcpedGenerator(URL.ncped, outDir);
+// let generator = new PtsGenerator(URL.ncped, outDir);
+// let pull = false
+// generator.generate(pull)

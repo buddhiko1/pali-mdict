@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import download from "download";
 
-import { IConfig } from "./interfaces";
+import { IConfig, IPts, IDppn, INcped } from "./interfaces";
+
+type Entry = IPts | INcped | IDppn
 
 export abstract class BaseGenerator {
   protected config: IConfig;
@@ -49,7 +51,19 @@ export abstract class BaseGenerator {
     console.info("download finished");
   }
 
-  protected abstract _generateHtmlStr(): string;
+  private _generateHtmlStr(): string {
+    let result: string = "";
+    const rawData = fs.readFileSync(this.config.rawFile);
+    let json = JSON.parse(rawData.toString());
+    for (let entry of json) {
+      entry = <Entry>entry;
+      result += this._generateEntryHtml(entry);
+      result += "</>\r\n"; // Split string of entry
+    }
+    return result;
+  }
+
+  protected abstract _generateEntryHtml(entry: Entry): string;
 
   _writeHtmlToFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.

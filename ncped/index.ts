@@ -3,14 +3,14 @@ import { render } from "template-file";
 
 import { BaseGenerator } from "../common/classes";
 import { INcped } from "../common/interfaces";
+import { DictEnum } from "../config";
 
 export class Generator extends BaseGenerator {
   constructor(rawUrl: string, outputDir: string) {
-    const name = "ncped";
-    super(rawUrl, __dirname, name, outputDir);
+    super(rawUrl, __dirname, DictEnum.NCPED, outputDir);
   }
 
-  private _generateEntryHtml(entry: INcped): string {
+  protected _generateEntryHtml(entry: INcped): string {
     //
     let grammarHtml: string = "";
     if (entry.grammar) {
@@ -56,17 +56,5 @@ export class Generator extends BaseGenerator {
     };
     const templateString = fs.readFileSync(this.config.entryHtmlFile, "utf8");
     return render(templateString, data);
-  }
-
-  protected _generateHtmlStr(): string {
-    let result: string = "";
-    const rawData = fs.readFileSync(this.config.rawFile);
-    let json = JSON.parse(rawData.toString());
-    for (let entry of json) {
-      entry = <INcped>entry;
-      result += this._generateEntryHtml(entry)
-      result += "</>\r\n"; // Split string of entry
-    }
-    return result;
   }
 }

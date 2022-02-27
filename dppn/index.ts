@@ -3,26 +3,14 @@ import { render } from "template-file";
 
 import { BaseGenerator } from "../common/classes"; 
 import { IDppn } from "../common/interfaces"
+import { DictEnum } from "../config";
 
 export class Generator extends BaseGenerator {
   constructor(rawUrl: string, outputDir: string) {
-    const name = "dppn";
-    super(rawUrl, __dirname, name, outputDir);
-  }
-  
-  protected _generateHtmlStr(): string {
-    let result: string = "";
-    const rawData = fs.readFileSync(this.config.rawFile);
-    let json = JSON.parse(rawData.toString());
-    for (let entry of json) {
-      entry = <IDppn>entry;
-      result += this._generateEntryHtml(entry);
-      result += "</>\r\n"; // Split string of entry
-    }
-    return result;
+    super(rawUrl, __dirname, DictEnum.DPPN, outputDir);
   }
 
-  private _generateEntryHtml(entry: IDppn): string {
+  protected _generateEntryHtml(entry: IDppn): string {
     const data = {
       entry: entry.word,
       type: this._getEntryType(entry.text),

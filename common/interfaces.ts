@@ -6,7 +6,7 @@ export interface IConfig {
   cssFileName: string; // Dict stylesheet.
 }
 
-export interface IDppn {
+export interface IPts {
   word: string;
   text: string;
 }
@@ -16,4 +16,9 @@ export interface INcped {
   grammar?: string;
   definition?: string | string[];
   xr?: string | string[]; // cross references
+}
+
+export interface IDppn {
+  word: string;
+  text: string;
 }
