@@ -9,7 +9,7 @@ export class Generator extends BaseGenerator {
   constructor(rawUrl: string, outputDir: string) {
     super(rawUrl, __dirname, DictEnum.DPPN, outputDir);
   }
-
+  
   protected _generateEntryHtml(entry: IDppn): string {
     const data = {
       entry: entry.word,

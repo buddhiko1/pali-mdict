@@ -1,4 +1,4 @@
-## Pali-Mdict Generator 
+## Make Pali Mdict 
 ---
 ### Abbreviations
 - `pts` : Pali Text Society Pali - English Dictionary

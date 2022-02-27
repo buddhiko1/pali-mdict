@@ -26,8 +26,15 @@ export abstract class BaseGenerator {
     };
   }
 
+  public clean(): void {
+    if (fs.existsSync(this.config.txtFile)) {
+      console.info(`rm ${this.config.txtFile}`);
+      fs.unlinkSync(this.config.txtFile);
+    }
+  }
+
   async generate(pull: boolean): Promise<void> {
-    console.info(`generating ${this.dictName}'s txt file...`)
+    console.info(`generating ${this.dictName}'s txt file...`);
     this._init();
     if (pull) {
       this._downloadRawFile();
