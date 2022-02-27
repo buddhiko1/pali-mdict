@@ -22,3 +22,5 @@ export interface IDppn {
   word: string;
   text: string;
 }
+
+export type Entry = IPts | INcped | IDppn;

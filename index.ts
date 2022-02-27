@@ -1,51 +1,27 @@
-import { Generator as NcpedGenerator } from "./ncped"; 
-import { Generator as DppnGenerator } from "./dppn"; 
-import { Generator as PtsGenerator } from "./pts"; 
-import { Command, Option } from "commander";
+import { Command } from "commander";
 
-import { URL, DictEnum } from "./config";
-
-enum PullEnum {
-  YES = "y",
-  NO = "n"
-}
+import { GeneratorFactory } from "./factory";
+import { DictEnum } from "./config";
 
 const program = new Command();
 
+program
+  .version("1.0.0")
+  .name("ts-node")
+  .usage("index.ts [options]")
+  .requiredOption(
+    "-d, --dict <dict>",
+    `choose a dictionary from the options: ${Object.values(DictEnum)}`,
+    DictEnum.PTS
+  )
+  .option("-p, --pull", "pull the latest raw data from SuttaCentral");
 
-// program
-//   .version("1.0.0")
-//   .name("Mdx-txt Generator")
-//   .usage("[global options] command")
-//   .addOption(
-//     new Option("-d, --dict <dict>", "dictionary").choices([
-//       DictEnum.PTS,
-//       DictEnum.NCPED,
-//       DictEnum.DPPN,
-//     ])
-//   )
-//   .addOption(
-//     new Option(
-//       "-p, --pull <pull>",
-//       "pull the latest source data of dict from SuttaCentral"
-//     ).choices([PullEnum.YES, PullEnum.NO])
-//   );
+program.parse();
+const options = program.opts();
+if (!Object.values(DictEnum).includes(options.dict)) {
+  console.error('error: invalid dict value!')
+  process.exit()
+}
 
-// program.parse();
-// const options = program.opts();
-// if (options.dict === DictEnum.PTS) {
-//   generatePtsTxtFile(options.pull);
-// } else if (options.dict === DictEnum.NCPED) {
-//   generateNcpedTxtFile(options.pull);
-// } else if (options.dict === DictEnum.DPPN) {
-//   let generator = new DppnMdxTxtGenerator(URL.dppn, __dirname);
-//   let downloadLastSourceData = options.pull === PullEnum.YES ? true : false
-//   generator.generate(downloadLastSourceData)
-// }
-
-// let outDir = `${__dirname}/output`
-// let generator = new DppnGenerator(URL.dppn, outDir);
-// let generator = new NcpedGenerator(URL.ncped, outDir);
-// let generator = new PtsGenerator(URL.ncped, outDir);
-// let pull = false
-// generator.generate(pull)
+let generator = GeneratorFactory.createGenerator(options.dict)
+generator.generate(options.pull)

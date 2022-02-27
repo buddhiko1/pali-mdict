@@ -2,20 +2,21 @@ import fs from "fs";
 import path from "path";
 import download from "download";
 
-import { IConfig, IPts, IDppn, INcped } from "./interfaces";
-
-type Entry = IPts | INcped | IDppn
+import { IConfig, Entry } from "./interfaces";
+import { DictEnum } from "../config";
 
 export abstract class BaseGenerator {
+  private dictName: DictEnum;
   protected config: IConfig;
 
   constructor(
     rawUrl: string,
     dictDir: string,
-    dictName: string,
+    dictName: DictEnum,
     outputDir: string
   ) {
     const txtFile = `${outputDir}/${dictName}/${dictName}.txt`;
+    this.dictName = dictName;
     this.config = {
       rawUrl,
       rawFile: `${dictDir}/${dictName}.json`,
@@ -26,6 +27,7 @@ export abstract class BaseGenerator {
   }
 
   async generate(pull: boolean): Promise<void> {
+    console.info(`generating ${this.dictName}'s txt file...`)
     this._init();
     if (pull) {
       this._downloadRawFile();
@@ -35,7 +37,8 @@ export abstract class BaseGenerator {
       }
     }
     let htmlStr = this._generateHtmlStr();
-    return this._writeHtmlToFile(htmlStr);
+    this._writeHtmlToFile(htmlStr);
+    console.info(`${this.dictName}'s txt file generated!`);
   }
 
   private _init(): void {
@@ -67,7 +70,7 @@ export abstract class BaseGenerator {
 
   _writeHtmlToFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.
-    // htmlStr = htmlStr.replace(/\n/g, "\r\n");
+    // htmlStr = htmlStr.replace(/[^\r]\n/g, "\r\n");
     fs.writeFileSync(this.config.txtFile, htmlStr, "utf-8");
   }
 }
