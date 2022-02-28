@@ -1,24 +1,23 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { BaseGenerator } from "../common/classes";
-import { IPts } from "../common/interfaces";
-import { DictEnum } from "../config";
+import { BaseMaker } from "../common/classes";
+import { IPts, IDictConf } from "../common/interfaces";
 
-export class Generator extends BaseGenerator {
-  constructor(rawUrl: string, outputDir: string) {
-    super(rawUrl, __dirname, DictEnum.PTS, outputDir);
+export class Maker extends BaseMaker {
+  constructor(dictConf: IDictConf) {
+    super(dictConf, __dirname);
   }
 
   protected _generateEntryHtml(entry: IPts): string {
     const data = {
       entry: entry.word,
       textHtml: this._rmRedundanceDtTag(entry),
-      cssFileName: this.config.cssFileName,
+      cssFileName: this.conf.cssFileName,
       etymologyHtml: this._extractEtymologyHtml(entry),
     };
-    const entryHtmlStr = fs.readFileSync(this.config.entryHtmlFile, "utf8");
-    return render(entryHtmlStr, data);
+    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    return render(template, data);
   }
 
   private _rmRedundanceDtTag(entry: IPts): string {

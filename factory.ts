@@ -1,19 +1,19 @@
-import { Generator as NcpedGenerator } from "./ncped";
-import { Generator as DppnGenerator } from "./dppn";
-import { Generator as PtsGenerator } from "./pts";
-import { BaseGenerator } from "./common/classes";
+import { Maker as NcpedMaker } from "./ncped";
+import { Maker as DppnMaker } from "./dppn";
+import { Maker as PtsMaker } from "./pts";
+import { BaseMaker } from "./common/classes";
 
-import { DictEnum, OUTPUT, URL } from "./config";
+import { DictEnum, DICTIONARY } from "./config";
 
-export class GeneratorFactory {
-  static createGenerator(dict: DictEnum): BaseGenerator {
+export class MakerFactory {
+  static createMaker(dict: DictEnum): BaseMaker {
     switch (dict) {
       case DictEnum.PTS:
-        return new PtsGenerator(URL.ncped, OUTPUT);
+        return new PtsMaker(DICTIONARY[dict]);
       case DictEnum.NCPED:
-        return new NcpedGenerator(URL.ncped, OUTPUT);
+        return new NcpedMaker(DICTIONARY[dict]);
       case DictEnum.DPPN:
-        return new DppnGenerator(URL.dppn, OUTPUT);
+        return new DppnMaker(DICTIONARY[dict]);
     }
     return <never>dict;
   }

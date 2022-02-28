@@ -1,69 +1,66 @@
 import fs from "fs";
-import path from "path";
+import { render } from "template-file";
 import download from "download";
 
-import { IConfig, Entry } from "./interfaces";
-import { DictEnum } from "../config";
+import { IMakerConf, Entry, IDictConf } from "./interfaces";
 
-export abstract class BaseGenerator {
-  private dictName: DictEnum;
-  protected config: IConfig;
+export abstract class BaseMaker {
+  protected conf: IMakerConf;
 
   constructor(
-    rawUrl: string,
+    dictConf: IDictConf,
     dictDir: string,
-    dictName: DictEnum,
-    outputDir: string
   ) {
-    const txtFile = `${outputDir}/${dictName}/${dictName}.txt`;
-    this.dictName = dictName;
-    this.config = {
-      rawUrl,
-      rawFile: `${dictDir}/${dictName}.json`,
+    const txtFile = `${dictConf.outputDir}/${dictConf.shortName}.txt`;
+    this.conf = {
+      dictConf,
+      rawFile: `${dictDir}/${dictConf.shortName}.json`,
       entryHtmlFile: `${dictDir}/entry.html`,
       txtFile,
-      cssFileName: `${dictName}.css`,
+      cssFileName: `${dictConf.shortName}.css`,
     };
   }
 
   public clean(): void {
-    if (fs.existsSync(this.config.txtFile)) {
-      console.info(`rm ${this.config.txtFile}`);
-      fs.unlinkSync(this.config.txtFile);
+    if (fs.existsSync(this.conf.txtFile)) {
+      console.info(`rm ${this.conf.txtFile}`);
+      fs.unlinkSync(this.conf.txtFile);
     }
   }
 
-  async generate(pull: boolean): Promise<void> {
-    console.info(`generating ${this.dictName}'s txt file...`);
+  async make(pull: boolean): Promise<void> {
+    console.info(`making ${this.conf.dictConf.shortName} mdict...`);
     this._init();
     if (pull) {
       this._downloadRawFile();
     } else {
-      if (!fs.existsSync(this.config.rawFile)) {
+      if (!fs.existsSync(this.conf.rawFile)) {
         await this._downloadRawFile();
       }
     }
-    let htmlStr = this._generateHtmlStr();
-    this._writeHtmlToFile(htmlStr);
-    console.info(`${this.dictName}'s txt file generated!`);
+    let txtStr = this._generateTxtStr();
+    this._makeTxtFile(txtStr);
+    this._makeTitleHtmlFile();
+    this._makeDescriptionHtmlFile();
+    
+    console.info(`${this.conf.dictConf.shortName} mdict created!`);
   }
 
   private _init(): void {
-    const outputDir = path.dirname(this.config.txtFile);
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    if (!fs.existsSync(this.conf.dictConf.outputDir)) {
+      fs.mkdirSync(this.conf.dictConf.outputDir, { recursive: true });
     }
   }
 
   private async _downloadRawFile(): Promise<void> {
     console.info("downloading raw file...");
-    fs.writeFileSync(this.config.rawFile, await download(this.config.rawUrl));
+    fs.writeFileSync(this.conf.rawFile, await download(this.conf.dictConf.rawUrl));
     console.info("download finished");
   }
 
-  private _generateHtmlStr(): string {
+  private _generateTxtStr(): string {
     let result: string = "";
-    const rawData = fs.readFileSync(this.config.rawFile);
+    const rawData = fs.readFileSync(this.conf.rawFile);
     let json = JSON.parse(rawData.toString());
     for (let entry of json) {
       entry = <Entry>entry;
@@ -75,9 +72,29 @@ export abstract class BaseGenerator {
 
   protected abstract _generateEntryHtml(entry: Entry): string;
 
-  _writeHtmlToFile(htmlStr: string): void {
+  private _makeTxtFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.
     // htmlStr = htmlStr.replace(/[^\r]\n/g, "\r\n");
-    fs.writeFileSync(this.config.txtFile, htmlStr, "utf-8");
+    fs.writeFileSync(this.conf.txtFile, htmlStr, "utf-8");
+  }
+  
+  private _makeTitleHtmlFile() {
+    const data = {
+      title: this.conf.dictConf.shortName.toLocaleUpperCase(),
+    };
+    const template = fs.readFileSync(`${__dirname}/title.html`, "utf8");
+    return render(template, data);
+  };
+  
+  private _makeDescriptionHtmlFile() {
+    const rawData = fs.readFileSync(this.conf.rawFile);
+    let json = JSON.parse(rawData.toString());
+    const data = {
+      fullName: this.conf.dictConf.fullName,
+      rawUrl: this.conf.dictConf.rawUrl,
+      entries: json.length
+    };
+    const template = fs.readFileSync(`${__dirname}/description.html`, "utf8");
+    return render(template, data);
   }
 }

@@ -1,13 +1,12 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { BaseGenerator } from "../common/classes";
-import { INcped } from "../common/interfaces";
-import { DictEnum } from "../config";
+import { BaseMaker } from "../common/classes";
+import { INcped, IDictConf } from "../common/interfaces";
 
-export class Generator extends BaseGenerator {
-  constructor(rawUrl: string, outputDir: string) {
-    super(rawUrl, __dirname, DictEnum.NCPED, outputDir);
+export class Maker extends BaseMaker {
+  constructor(dictConf: IDictConf) {
+    super(dictConf, __dirname);
   }
 
   protected _generateEntryHtml(entry: INcped): string {
@@ -50,11 +49,11 @@ export class Generator extends BaseGenerator {
     const data = {
       entry: entry.entry,
       grammarHtml: grammarHtml,
-      cssFileName: this.config.cssFileName,
+      cssFileName: this.conf.cssFileName,
       definitionHtml: definitionHtml,
       xfHtml: xfHtml,
     };
-    const templateString = fs.readFileSync(this.config.entryHtmlFile, "utf8");
-    return render(templateString, data);
+    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    return render(template, data);
   }
 }

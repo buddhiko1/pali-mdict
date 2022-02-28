@@ -1,13 +1,12 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { BaseGenerator } from "../common/classes"; 
-import { IDppn } from "../common/interfaces"
-import { DictEnum } from "../config";
+import { BaseMaker } from "../common/classes"; 
+import { IDppn, IDictConf } from "../common/interfaces"
 
-export class Generator extends BaseGenerator {
-  constructor(rawUrl: string, outputDir: string) {
-    super(rawUrl, __dirname, DictEnum.DPPN, outputDir);
+export class Maker extends BaseMaker {
+  constructor(dictConf: IDictConf) {
+    super(dictConf, __dirname);
   }
   
   protected _generateEntryHtml(entry: IDppn): string {
@@ -15,10 +14,10 @@ export class Generator extends BaseGenerator {
       entry: entry.word,
       type: this._getEntryType(entry.text),
       textHtml: this._rmRedundanceDtTag(entry.text),
-      cssFileName: this.config.cssFileName,
+      cssFileName: this.conf.cssFileName,
     };
-    const entryHtmlStr = fs.readFileSync(this.config.entryHtmlFile, "utf8");
-    return render(entryHtmlStr, data);
+    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    return render(template, data);
   }
 
   private _getEntryType(text: string): string {
