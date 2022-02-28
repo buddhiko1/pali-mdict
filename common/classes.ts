@@ -1,4 +1,5 @@
 import fs from "fs";
+import execSh from "exec-sh";
 import { render } from "template-file";
 import download from "download";
 
@@ -37,14 +38,20 @@ export abstract class BaseMaker {
   }
 
   public clean(): void {
+    console.log("remove temporary files ...\n");
     if (fs.existsSync(this.txtOutputFile)) {
-      console.info(`rm ${this.txtOutputFile}`);
       fs.unlinkSync(this.txtOutputFile);
+    }
+    if (fs.existsSync(this.titleOutputFile)) {
+      fs.unlinkSync(this.titleOutputFile);
+    }
+    if (fs.existsSync(this.descriptionOutputFile)) {
+      fs.unlinkSync(this.descriptionOutputFile);
     }
   }
 
   async make(pull: boolean): Promise<void> {
-    console.info(`making ${this.conf.shortName} mdict...`);
+    console.info(`making ${this.conf.shortName} mdict ...\n`);
     this._init();
     if (pull) {
       this._downloadRawFile();
@@ -57,7 +64,9 @@ export abstract class BaseMaker {
     this._makeTxtFile(txtStr);
     this._makeTitleFile();
     this._makeDescriptionFile();
-    console.info(`${this.conf.shortName} mdict created!`);
+    await this._makeMdxFile()
+    this.clean()
+    console.info(`${this.conf.shortName} mdict created!\n`);
   }
 
   private _init(): void {
@@ -113,4 +122,15 @@ export abstract class BaseMaker {
     const htmlStr = render(template, data);
     fs.writeFileSync(this.descriptionOutputFile, htmlStr, "utf-8");
   }
+
+  private async _makeMdxFile() {
+    const command = `mdict --title ${FILENAME_MAP.title} --description ${FILENAME_MAP.description} -a ${FILENAME_MAP.txt} ${FILENAME_MAP.mdx}`
+    try {
+      let result = await execSh.promise(command, { cwd: this.conf.outputDir });
+      console.info(result.stdout)
+      console.error(result.stderr)
+    } catch (e) {
+      console.log(`error: ${e}`)
+    }
+  }; 
 }

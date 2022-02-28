@@ -16,7 +16,7 @@ export enum DictEnum {
   NCPED = "ncped",
 };
 
-export const ASSETS_DIR = `${__dirname}/output`;
+export const ASSETS_DIR = `${__dirname}/assets`;
 
 type dictionary = Record<DictEnum, IDictConf>
 
