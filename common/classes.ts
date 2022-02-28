@@ -2,65 +2,79 @@ import fs from "fs";
 import { render } from "template-file";
 import download from "download";
 
-import { IMakerConf, Entry, IDictConf } from "./interfaces";
+import { Entry, IDictConf } from "./interfaces";
+import { FILENAME_MAP } from "../config"
 
 export abstract class BaseMaker {
-  protected conf: IMakerConf;
+  constructor(private conf: IDictConf) {}
 
-  constructor(
-    dictConf: IDictConf,
-    dictDir: string,
-  ) {
-    const txtFile = `${dictConf.outputDir}/${dictConf.shortName}.txt`;
-    this.conf = {
-      dictConf,
-      rawFile: `${dictDir}/${dictConf.shortName}.json`,
-      entryHtmlFile: `${dictDir}/entry.html`,
-      txtFile,
-      cssFileName: `${dictConf.shortName}.css`,
-    };
+  private get rawFile(): string {
+    return `${this.conf.moduleDir}/${FILENAME_MAP.raw}`;
+  }
+
+  private get txtOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.txt}`;
+  }
+
+  private get titleTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.title}`;
+  }
+
+  private get titleOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.title}`;
+  }
+
+  private get descriptionTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.description}`;
+  }
+
+  private get descriptionOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.description}`;
+  }
+
+  protected get entryTemplateFile(): string {
+    return `${this.conf.moduleDir}/${FILENAME_MAP.entryTemplate}`;
   }
 
   public clean(): void {
-    if (fs.existsSync(this.conf.txtFile)) {
-      console.info(`rm ${this.conf.txtFile}`);
-      fs.unlinkSync(this.conf.txtFile);
+    if (fs.existsSync(this.txtOutputFile)) {
+      console.info(`rm ${this.txtOutputFile}`);
+      fs.unlinkSync(this.txtOutputFile);
     }
   }
 
   async make(pull: boolean): Promise<void> {
-    console.info(`making ${this.conf.dictConf.shortName} mdict...`);
+    console.info(`making ${this.conf.shortName} mdict...`);
     this._init();
     if (pull) {
       this._downloadRawFile();
     } else {
-      if (!fs.existsSync(this.conf.rawFile)) {
+      if (!fs.existsSync(this.rawFile)) {
         await this._downloadRawFile();
       }
     }
     let txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
-    this._makeTitleHtmlFile();
-    this._makeDescriptionHtmlFile();
-    
-    console.info(`${this.conf.dictConf.shortName} mdict created!`);
+    this._makeTitleFile();
+    this._makeDescriptionFile();
+    console.info(`${this.conf.shortName} mdict created!`);
   }
 
   private _init(): void {
-    if (!fs.existsSync(this.conf.dictConf.outputDir)) {
-      fs.mkdirSync(this.conf.dictConf.outputDir, { recursive: true });
+    if (!fs.existsSync(this.conf.outputDir)) {
+      fs.mkdirSync(this.conf.outputDir, { recursive: true });
     }
   }
 
   private async _downloadRawFile(): Promise<void> {
     console.info("downloading raw file...");
-    fs.writeFileSync(this.conf.rawFile, await download(this.conf.dictConf.rawUrl));
+    fs.writeFileSync(this.rawFile, await download(this.conf.rawUrl));
     console.info("download finished");
   }
 
   private _generateTxtStr(): string {
     let result: string = "";
-    const rawData = fs.readFileSync(this.conf.rawFile);
+    const rawData = fs.readFileSync(this.rawFile);
     let json = JSON.parse(rawData.toString());
     for (let entry of json) {
       entry = <Entry>entry;
@@ -75,26 +89,28 @@ export abstract class BaseMaker {
   private _makeTxtFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.
     // htmlStr = htmlStr.replace(/[^\r]\n/g, "\r\n");
-    fs.writeFileSync(this.conf.txtFile, htmlStr, "utf-8");
+    fs.writeFileSync(this.txtOutputFile, htmlStr, "utf-8");
   }
-  
-  private _makeTitleHtmlFile() {
+
+  private _makeTitleFile() {
     const data = {
-      title: this.conf.dictConf.shortName.toLocaleUpperCase(),
+      title: this.conf.shortName.toLocaleUpperCase(),
     };
-    const template = fs.readFileSync(`${__dirname}/title.html`, "utf8");
-    return render(template, data);
-  };
-  
-  private _makeDescriptionHtmlFile() {
-    const rawData = fs.readFileSync(this.conf.rawFile);
+    const template = fs.readFileSync(this.titleTemplateFile, "utf8");
+    const htmlStr = render(template, data);
+    fs.writeFileSync(this.titleOutputFile, htmlStr, "utf-8");
+  }
+
+  private _makeDescriptionFile() {
+    const rawData = fs.readFileSync(this.rawFile);
     let json = JSON.parse(rawData.toString());
     const data = {
-      fullName: this.conf.dictConf.fullName,
-      rawUrl: this.conf.dictConf.rawUrl,
-      entries: json.length
+      fullName: this.conf.fullName,
+      rawUrl: this.conf.rawUrl,
+      entries: json.length,
     };
-    const template = fs.readFileSync(`${__dirname}/description.html`, "utf8");
-    return render(template, data);
+    const template = fs.readFileSync(this.descriptionTemplateFile, "utf8");
+    const htmlStr = render(template, data);
+    fs.writeFileSync(this.descriptionOutputFile, htmlStr, "utf-8");
   }
 }

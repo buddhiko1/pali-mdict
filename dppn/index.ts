@@ -3,10 +3,11 @@ import { render } from "template-file";
 
 import { BaseMaker } from "../common/classes"; 
 import { IDppn, IDictConf } from "../common/interfaces"
+import { FILENAME_MAP } from "../config";
 
 export class Maker extends BaseMaker {
-  constructor(dictConf: IDictConf) {
-    super(dictConf, __dirname);
+  constructor(conf: IDictConf) {
+    super(conf);
   }
   
   protected _generateEntryHtml(entry: IDppn): string {
@@ -14,9 +15,9 @@ export class Maker extends BaseMaker {
       entry: entry.word,
       type: this._getEntryType(entry.text),
       textHtml: this._rmRedundanceDtTag(entry.text),
-      cssFileName: this.conf.cssFileName,
+      cssFileName: FILENAME_MAP.css,
     };
-    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    const template = fs.readFileSync(this.entryTemplateFile, "utf8");
     return render(template, data);
   }
 
@@ -26,7 +27,7 @@ export class Maker extends BaseMaker {
     if (matched?.groups) {
       return matched.groups.entryType;
     }
-    throw Error("The type of the entry doesn't exist in the text!");
+    throw Error("Entry's type information doesn't exist!");
   }
 
   private _rmRedundanceDtTag(text: string): string {

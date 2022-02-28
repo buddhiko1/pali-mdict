@@ -3,20 +3,21 @@ import { render } from "template-file";
 
 import { BaseMaker } from "../common/classes";
 import { IPts, IDictConf } from "../common/interfaces";
+import { FILENAME_MAP } from "../config";
 
 export class Maker extends BaseMaker {
-  constructor(dictConf: IDictConf) {
-    super(dictConf, __dirname);
+  constructor(conf: IDictConf) {
+    super(conf);
   }
 
   protected _generateEntryHtml(entry: IPts): string {
     const data = {
       entry: entry.word,
       textHtml: this._rmRedundanceDtTag(entry),
-      cssFileName: this.conf.cssFileName,
+      cssFileName: FILENAME_MAP.css,
       etymologyHtml: this._extractEtymologyHtml(entry),
     };
-    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    const template = fs.readFileSync(this.entryTemplateFile, "utf8");
     return render(template, data);
   }
 

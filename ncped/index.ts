@@ -3,10 +3,11 @@ import { render } from "template-file";
 
 import { BaseMaker } from "../common/classes";
 import { INcped, IDictConf } from "../common/interfaces";
+import { FILENAME_MAP } from "../config";
 
 export class Maker extends BaseMaker {
-  constructor(dictConf: IDictConf) {
-    super(dictConf, __dirname);
+  constructor(conf: IDictConf) {
+    super(conf);
   }
 
   protected _generateEntryHtml(entry: INcped): string {
@@ -49,11 +50,11 @@ export class Maker extends BaseMaker {
     const data = {
       entry: entry.entry,
       grammarHtml: grammarHtml,
-      cssFileName: this.conf.cssFileName,
+      cssFileName: FILENAME_MAP.css,
       definitionHtml: definitionHtml,
       xfHtml: xfHtml,
     };
-    const template = fs.readFileSync(this.conf.entryHtmlFile, "utf8");
+    const template = fs.readFileSync(this.entryTemplateFile, "utf8");
     return render(template, data);
   }
 }

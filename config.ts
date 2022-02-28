@@ -1,12 +1,22 @@
-import { IDictConf } from "./common/interfaces";
+import { IDictConf, IFileNameMap } from "./common/interfaces";
 
-export const ASSETS_DIR = `${__dirname}/output`;
+export const FILENAME_MAP: IFileNameMap = {
+  entryTemplate: 'entry.html',
+  raw: "dict.json",
+  css: "dict.css",
+  txt: "dict.txt",
+  title: "title.html",
+  description: "description.html",
+  mdx: "dict.mdx"
+}
 
 export enum DictEnum {
   PTS = "pts",
   DPPN = "dppn",
   NCPED = "ncped",
 };
+
+export const ASSETS_DIR = `${__dirname}/output`;
 
 type dictionary = Record<DictEnum, IDictConf>
 
@@ -17,6 +27,7 @@ export const DICTIONARY: dictionary = {
     fullName: "Pali Text Society Pali-English Dictionary",
     shortName: DictEnum.PTS,
     outputDir: `${ASSETS_DIR}/${DictEnum.PTS}`,
+    moduleDir: `${__dirname}/${DictEnum.PTS}`,
   },
   [DictEnum.DPPN]: {
     rawUrl:
@@ -24,6 +35,7 @@ export const DICTIONARY: dictionary = {
     fullName: "Dictionary of Pali Proper Names",
     shortName: DictEnum.DPPN,
     outputDir: `${ASSETS_DIR}/${DictEnum.DPPN}`,
+    moduleDir: `${__dirname}/${DictEnum.DPPN}`,
   },
   [DictEnum.NCPED]: {
     rawUrl:
@@ -31,6 +43,7 @@ export const DICTIONARY: dictionary = {
     fullName: "New Concise Pali-English Dictionary",
     shortName: DictEnum.NCPED,
     outputDir: `${ASSETS_DIR}/${DictEnum.NCPED}`,
+    moduleDir: `${__dirname}/${DictEnum.NCPED}`,
   },
 };
 

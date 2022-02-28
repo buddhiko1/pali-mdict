@@ -1,22 +1,19 @@
-export interface IMakerConf {
-  dictConf: IDictConf; // For downloading raw file.
-  rawFile: string; // For generating txt file.
-  txtFile: string; // For building mdx with mdx-builder.
-  entryHtmlFile: string; 
-  cssFileName: string; // Dict stylesheet.
+export interface IDictConf {
+  rawUrl: string; // for downloading raw file
+  fullName: string; // full name of dictionary
+  shortName: string; // short name of dictionary
+  outputDir: string; 
+  moduleDir: string;
 }
 
-export interface IDictConf {
-  rawUrl: string; // for downloading raw file.
-  fullName: string; // full name of dictionary.
-  shortName: string; // short name of dictionary.
-  outputDir: string;
-  entryFileName: string; // layout must compliance with the mdict standard.
-  cssFileName: string; // dict stylesheet.
-  txtFileName: string; // for building mdx with mdx-builder.
-  titleFileName: string; // for building mdx with mdx-builder.
-  descriptionFileName: string; // for building mdx with mdx-builder.
-  mdxFileName: string; // result mdict file
+export interface IFileNameMap {
+  entryTemplate: string; // layout must compliance with the mdict standard
+  raw: string; // file name of raw dict data
+  css: string; // dict stylesheet
+  txt: string; // for building mdx with mdx-builder
+  title: string; // for building mdx with mdx-builder
+  description: string; // for building mdx with mdx-builder
+  mdx: string; // result mdict file
 }
 
 export interface IPts {

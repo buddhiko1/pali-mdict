@@ -17,7 +17,7 @@ program
   .description("Remove unnecessary files")
   .action(() => {
     for (let dict of Object.values(DictEnum)) {
-      let maker = MakerFactory.createMaker(dict)
+      let maker = MakerFactory.create(dict)
       maker.clean()
     }
   })
@@ -36,8 +36,8 @@ program
       console.error("error: invalid dict!");
       process.exit();
     }
-    let maker = MakerFactory.createMaker(options.dict);
+    let maker = MakerFactory.create(options.dict);
     maker.make(options.pull);
   })
 
-program.parse();
+program.parse(process.argv);
