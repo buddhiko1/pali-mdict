@@ -50,7 +50,7 @@ export abstract class BaseMaker {
     }
   }
 
-  async make(pull: boolean): Promise<void> {
+  async make(pull: boolean, forEudic: boolean): Promise<void> {
     console.info(`making ${this.conf.shortName} mdict ...\n`);
     this._init();
     if (pull) {
@@ -62,7 +62,7 @@ export abstract class BaseMaker {
     }
     let txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
-    this._makeTitleFile();
+    this._makeTitleFile(forEudic);
     this._makeDescriptionFile();
     await this._makeMdxFile()
     this.clean()
@@ -101,12 +101,17 @@ export abstract class BaseMaker {
     fs.writeFileSync(this.txtOutputFile, htmlStr, "utf-8");
   }
 
-  private _makeTitleFile() {
-    const data = {
-      title: this.conf.shortName.toLocaleUpperCase(),
-    };
-    const template = fs.readFileSync(this.titleTemplateFile, "utf8");
-    const htmlStr = render(template, data);
+  private _makeTitleFile(forEudic: boolean) {
+    let htmlStr: string;
+    if (forEudic) {
+      htmlStr = this.conf.shortName.toLocaleUpperCase(); 
+    } else {
+      const data = {
+        title: this.conf.shortName.toLocaleUpperCase(),
+      };
+      const template = fs.readFileSync(this.titleTemplateFile, "utf8");
+      htmlStr = render(template, data);
+    }
     fs.writeFileSync(this.titleOutputFile, htmlStr, "utf-8");
   }
 
