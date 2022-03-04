@@ -32,13 +32,14 @@ export class Maker extends BaseMaker {
 
   private _rmRedundanceDtTag(text: string): string {
     let result = text;
-    const regexp = /<dt>.*?<\/dt>/g;
-    let matched = result.match(regexp);
+    const dtRegexp = /<dt>.*?<\/dt>/g;
+    let matched = result.match(dtRegexp);
 
     if (matched?.length === 1) {
-      result = result.replace(regexp, "");
+      result = result.replace(dtRegexp, "");
     }
 
+    // remove a few exceptions
     if (matched?.length === 2) {
       let matchedStr = matched.toString();
       if (!matchedStr.includes("<sup>")) {
@@ -50,7 +51,7 @@ export class Maker extends BaseMaker {
         }
       }
     }
-    
+
     return result;
   }
 }

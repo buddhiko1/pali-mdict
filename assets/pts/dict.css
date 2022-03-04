@@ -1,74 +1,121 @@
+body {
+  font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
+  font-size: 13px;
+  background-color: #FEFDEB;
+}
+
 .entry {
-  font-size: 18px !important;
+  font-size: 1.35rem;
   color: maroon;
 }
 
-/* .type {
-  margin-left: 10px;
-  font-size: small;
-  color: rgb(245, 26, 216);
-}
-
-i {
-  color:rgb(245, 26, 216);
+.grammar {
+  margin-left: 0.7rem;
+  color: brown;
 }
 
 dd {
-  margin: 0 20px;
+  color: #0e337e;
+  line-height: 1.5rem;
 }
 
-dt {
-  margin-left: 20px;
-  font-style: italic;
-  color: maroon;
-  display: inline-block;
+ol {
+  padding-left: 0;
 }
 
-dt > sup {
-  color: rgb(245, 26, 216);
-  margin-left: 3px;
-}
-
-p {
-  color: rgb(3, 113, 133);
-  border-radius: 8px;
-  border: 1px solid rgb(3, 113, 133);
-  padding: 15px;
-  background-color: #FDE6E0;
-  margin-top: 5px;
-  font-size: 14px !important;
-  line-height: 25px;
-
-}
-
-.google-maps {
-  display: none;
-}
-
-.info {
-  display: none;
-}
-*/
-a.ref {
-  text-decoration: none;
-  display: inline-block;
-  font-size: 9px;
+span.ref {
+  font-size: 0.7rem;
   font-weight: lighter;
-  border-radius: 5px;
-  border: 1px solid gray;
-  padding: 2px 3px;
   color: gray
 }
 
-.etymology {
-  border-radius: 8px;
-  border: 1px solid rgb(3, 113, 133);
-  padding: 5px 10px;
-  background-color: #FDE6E0;
+a.ref {
+  text-decoration:none;
+  border-bottom: 1px gray dotted;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  color: gray
 }
 
-.etymology > .title {
-  color:rgb(3, 113, 133);
-  font-size: 14px;
+i.term {
+  font-style: italic;
+  font-weight:100;
+  color: #0e337e;
 }
 
+.linkTerm {
+  text-decoration:none;
+  border-bottom: 1px maroon dotted;
+  font-style: normal;
+  color: maroon;
+}
+
+.subTitle {
+  margin: 2rem 0.7rem 0 0.7rem;
+}
+
+.subTitle:first-child {
+  margin-top: 1rem;
+}
+
+.subTitle > .word {
+  border-radius: 0.2rem;
+  background-color: maroon;
+  padding: 0.15rem 0.3rem;
+  color: white;
+}
+
+.text > dd {
+  margin: 0 1.5rem 0rem 1.5rem;
+}
+dd > ol {
+  margin: 0 0.5rem 0rem 0.5rem;
+}
+
+ol.decimal {
+  margin-left: 1.3rem;
+}
+
+dd > ol > li {
+  margin-top: 1rem;
+}
+
+br {
+  margin-bottom: 1rem;
+}
+
+.eti {
+  border: 1px dotted gray;
+  padding: 0 0.5rem 0.2rem 0.5rem;
+  border-style: dotted;
+  margin: 0;
+}
+
+.eti::before {
+  content: "Etymology";    
+  display: block;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.compounds {
+  list-style: none;
+  padding: 0 0.5rem 0.2rem 0.5rem;
+  margin: 1.3rem 0;
+  border: 1px dotted gray;
+}
+
+.compounds::before {
+  content: "Compounds";    
+  display: block;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.compounds > li {
+  margin-top: 0.5rem;
+}
+
+.compounds > li > i.term {
+  color: maroon;
+}

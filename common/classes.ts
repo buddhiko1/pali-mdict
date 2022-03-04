@@ -7,40 +7,13 @@ import { Entry, IDictConf } from "./interfaces";
 import { FILENAME_MAP } from "../config"
 
 export abstract class BaseMaker {
+  protected count: number = 0
   constructor(private conf: IDictConf) {}
-
-  private get rawFile(): string {
-    return `${this.conf.moduleDir}/${FILENAME_MAP.raw}`;
-  }
-
-  private get txtOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.txt}`;
-  }
-
-  private get titleTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.title}`;
-  }
-
-  private get titleOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.title}`;
-  }
-
-  private get descriptionTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.description}`;
-  }
-
-  private get descriptionOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.description}`;
-  }
-
-  protected get entryTemplateFile(): string {
-    return `${this.conf.moduleDir}/${FILENAME_MAP.entryTemplate}`;
-  }
 
   public clean(): void {
     console.log("remove temporary files ...\n");
     if (fs.existsSync(this.txtOutputFile)) {
-      fs.unlinkSync(this.txtOutputFile);
+      // fs.unlinkSync(this.txtOutputFile);
     }
     if (fs.existsSync(this.titleOutputFile)) {
       fs.unlinkSync(this.titleOutputFile);
@@ -62,10 +35,11 @@ export abstract class BaseMaker {
     }
     let txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
+    console.log(`count: ${this.count}\n`)
     this._makeTitleFile(forEudic);
     this._makeDescriptionFile();
-    await this._makeMdxFile()
-    this.clean()
+    await this._makeMdxFile();
+    this.clean();
     console.info(`${this.conf.shortName} mdict created!\n`);
   }
 
@@ -104,7 +78,7 @@ export abstract class BaseMaker {
   private _makeTitleFile(forEudic: boolean) {
     let htmlStr: string;
     if (forEudic) {
-      htmlStr = this.conf.shortName.toLocaleUpperCase(); 
+      htmlStr = this.conf.shortName.toLocaleUpperCase();
     } else {
       const data = {
         title: this.conf.shortName.toLocaleUpperCase(),
@@ -129,13 +103,41 @@ export abstract class BaseMaker {
   }
 
   private async _makeMdxFile() {
-    const command = `mdict --title ${FILENAME_MAP.title} --description ${FILENAME_MAP.description} -a ${FILENAME_MAP.txt} ${FILENAME_MAP.mdx}`
+    const command = `mdict --title ${FILENAME_MAP.title} --description ${FILENAME_MAP.description} -a ${FILENAME_MAP.txt} ${FILENAME_MAP.mdx}`;
     try {
       let result = await execSh.promise(command, { cwd: this.conf.outputDir });
-      console.info(result.stdout)
-      console.error(result.stderr)
+      console.info(result.stdout);
+      console.error(result.stderr);
     } catch (e) {
-      console.log(`error: ${e}`)
+      console.log(`error: ${e}`);
     }
-  }; 
+  }
+
+  private get rawFile(): string {
+    return `${this.conf.moduleDir}/${FILENAME_MAP.raw}`;
+  }
+
+  private get txtOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.txt}`;
+  }
+
+  private get titleTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.title}`;
+  }
+
+  private get titleOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.title}`;
+  }
+
+  private get descriptionTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.description}`;
+  }
+
+  private get descriptionOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME_MAP.description}`;
+  }
+
+  protected get entryTemplateFile(): string {
+    return `${this.conf.moduleDir}/${FILENAME_MAP.entryTemplate}`;
+  }
 }

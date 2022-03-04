@@ -11,11 +11,14 @@ export class Maker extends BaseMaker {
   }
 
   protected _generateEntryHtml(entry: IPts): string {
+    entry.text = this._rmRedundanceDtTag(entry);
+    let isSingleDdEntry = this._isSingleDdEntry(entry)
+    let entryGrammarHtml = isSingleDdEntry ? this._getEntryGrammarHtml(entry) : '' 
     const data = {
       entry: entry.word,
-      textHtml: this._rmRedundanceDtTag(entry),
+      entryGrammarHtml,
+      textHtml: this._generateTextHtml(entry, isSingleDdEntry),
       cssFileName: FILENAME_MAP.css,
-      etymologyHtml: this._extractEtymologyHtml(entry),
     };
     const template = fs.readFileSync(this.entryTemplateFile, "utf8");
     return render(template, data);
@@ -33,7 +36,6 @@ export class Maker extends BaseMaker {
         (item) => item[1]
       );
       if (alias[0].toLowerCase() === entry.word.toLowerCase()) {
-        // console.log(`${word.word} \| ${alias[0]}`);
         result = result.replace(tagRegexp, "");
       }
     }
@@ -41,14 +43,57 @@ export class Maker extends BaseMaker {
     return result;
   }
 
-  private _extractEtymologyHtml(entry: IPts): string {
-    const regexp = /(?<etymology><p class='eti'>.*?<\/p>)/g;
-    let matchedArray = [...entry.text.matchAll(regexp)];
-    if (matchedArray) {
-      console.info(`word: ${entry.word}, etymology:${matchedArray}`);
-    } else {
-      console.log("empty");
+  private _getEntryGrammarHtml(entry: IPts): string {
+    const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
+    let matchedArray = [...entry.text.matchAll(ddRegexp)];
+    let [grammarHtml, _] = this._extractDdGrammarHtml(matchedArray[0][0]);
+    return grammarHtml;
+  }
+
+  private _isSingleDdEntry(entry: IPts): boolean {
+    const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
+    let matchedArray = [...entry.text.matchAll(ddRegexp)];
+    return matchedArray.length === 1;
+  }
+
+  private _generateTextHtml(entry: IPts, isSingleDdEntry:boolean): string {
+    let result = "";
+    const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
+    let matchedArray = [...entry.text.matchAll(ddRegexp)];
+    for (let dd of matchedArray) {
+      let [ddGrammarHtml, ddHtml] = this._extractDdGrammarHtml(dd[0]);
+      ddHtml = this._replaceKeywordLink(ddHtml);
+      if (isSingleDdEntry) {
+        result += ddHtml
+      } else {
+        let ddTitleHtml = `<div class='subTitle'><span class='word'>${entry.word}<sup>${dd?.groups?.index}</sup></span>${ddGrammarHtml}</div>`;
+        result += ddTitleHtml + ddHtml; 
+      }
     }
-    return "";
+    return result;
+  }
+
+  private _extractDdGrammarHtml(ddHtml: string): [string, string] {
+    const regexp = /<span class='grammar'>(?<grammar>.*?)<\/span>/g;
+    let matchedArray = [...ddHtml.matchAll(regexp)];
+    if (matchedArray.length) {
+      let grammarHtml = `<span class='grammar'>( ${matchedArray[0].groups?.grammar} )</span>`;
+      return [grammarHtml, ddHtml.replace(regexp, "")]
+    }
+    return ["", ddHtml];
+  }
+
+  private _replaceKeywordLink(text: string):string {
+    const regexp = /<a href='\/define\/(.*?)'>/g;
+    return text.replace(regexp, "<a class='linkTerm' href='entry://$1'>");
+  }
+
+  private _extractDdEtymologyHtml(ddHtml: string): [string, string] {
+    const regexp = /(?<etymology><p class='eti'>.*?<\/p>?)/g;
+    let matchedArray = [...ddHtml.matchAll(regexp)];
+    if (matchedArray.length) {
+      return [matchedArray[0][0], ddHtml.replace(regexp, "")];
+    }
+    return ["", ddHtml];
   }
 }
