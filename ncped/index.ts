@@ -39,6 +39,9 @@ export class Maker extends BaseMaker {
         xfHtml = `\n  <li><a href="entry://${entry.xr}">${entry.xr}</a></li>`;
       } else {
         for (let item of entry.xr) {
+          if (entry.xr.length > 2) {
+            console.log(entry.entry)
+          }
           xfHtml += `\n  <li><a href="entry://${item}">${item}</a></li>`;
         }
       }

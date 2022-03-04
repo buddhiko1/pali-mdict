@@ -5,7 +5,7 @@ body {
 }
 
 .entry {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   color: maroon;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 dd {
-  color: #0e337e;
+  color: #008080;
   line-height: 1.5rem;
 }
 
@@ -118,4 +118,5 @@ br {
 
 .compounds > li > i.term {
   color: maroon;
+  font-style: normal;
 }
