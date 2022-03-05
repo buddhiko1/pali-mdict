@@ -12,6 +12,7 @@ body {
 .grammar {
   margin-left: 0.7rem;
   color: brown;
+  font-size: small;
 }
 
 dd {
@@ -38,9 +39,9 @@ a.ref {
 }
 
 i.term {
-  font-style: italic;
+  font-style: normal;
   font-weight:100;
-  color: #0e337e;
+  color: maroon;
 }
 
 .linkTerm {
@@ -77,11 +78,7 @@ ol.decimal {
 }
 
 dd > ol > li {
-  margin-top: 1rem;
-}
-
-br {
-  margin-bottom: 1rem;
+  margin-top: 0.8rem;
 }
 
 .eti {

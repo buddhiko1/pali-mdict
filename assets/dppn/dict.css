@@ -1,44 +1,50 @@
+body {
+  font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
+  font-size: 13px;
+  background-color: #FEFDEB;
+}
+
 .entry {
-  font-size: 18px !important;
+  font-size: 1.2rem;
   color: maroon;
 }
 
 .type {
-  margin-left: 10px;
+  color: brown;
+  margin-left: 0.7rem;
   font-size: small;
-  color: rgb(245, 26, 216);
-}
-
-i {
-  color:rgb(245, 26, 216);
-}
-
-dd {
-  margin: 0 20px;
-}
-
-dt {
-  margin-left: 20px;
-  font-style: italic;
-  color: maroon;
   display: inline-block;
 }
 
-dt > sup {
-  color: rgb(245, 26, 216);
-  margin-left: 3px;
+i {
+  color:brown;
+  font-style: normal;
+}
+
+dd {
+  margin: 0 1.5rem;
+}
+
+dt {
+  margin: 0 0 0.5rem 0.7rem;
+  font-style: normal;
+  display: inline-block;
+  font-size: 0.95em;
+  border-radius: 0.2em;
+  background-color: maroon;
+  padding: 0.15rem 0.3rem;
+  color: white;
 }
 
 p {
-  color: rgb(3, 113, 133);
-  border-radius: 8px;
-  border: 1px solid rgb(3, 113, 133);
-  padding: 15px;
-  background-color: #FDE6E0;
-  margin-top: 5px;
-  font-size: 14px !important;
-  line-height: 25px;
-
+  color: #008080;
+  border: 1px dotted gray;
+  padding: 1em;
+  /* background-color: #FDE6E0; */
+  font-size: 1em !important;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.7em;
 }
 
 .google-maps {
@@ -49,13 +55,11 @@ p {
   display: none;
 }
 
-.text .ref {
+.ref {
   text-decoration: none;
+  /* border-bottom: 1px maroon dotted; */
   display: inline-block;
-  font-size: 9px;
+  font-size: 0.8em;
   font-weight: lighter;
-  border-radius: 5px;
-  border: 1px solid gray;
-  padding: 0px 3px;
   color: gray
 }
