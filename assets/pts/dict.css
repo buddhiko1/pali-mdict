@@ -134,6 +134,10 @@ h3 > i {
   color: maroon;
 }
 
+h3 ~ .lower-latin {
+  margin-left: 1.3rem;
+}
+
 .decimal .lower-latin {
   margin-left: 0.8rem;
 }
