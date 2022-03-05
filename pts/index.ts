@@ -87,13 +87,4 @@ export class Maker extends BaseMaker {
     const regexp = /<a href='\/define\/(.*?)'>/g;
     return text.replace(regexp, "<a class='linkTerm' href='entry://$1'>");
   }
-
-  private _extractDdEtymologyHtml(ddHtml: string): [string, string] {
-    const regexp = /(?<etymology><p class='eti'>.*?<\/p>?)/g;
-    let matchedArray = [...ddHtml.matchAll(regexp)];
-    if (matchedArray.length) {
-      return [matchedArray[0][0], ddHtml.replace(regexp, "")];
-    }
-    return ["", ddHtml];
-  }
 }

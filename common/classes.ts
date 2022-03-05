@@ -13,7 +13,7 @@ export abstract class BaseMaker {
   public clean(): void {
     console.log("remove temporary files ...\n");
     if (fs.existsSync(this.txtOutputFile)) {
-      // fs.unlinkSync(this.txtOutputFile);
+      fs.unlinkSync(this.txtOutputFile);
     }
     if (fs.existsSync(this.titleOutputFile)) {
       fs.unlinkSync(this.titleOutputFile);
