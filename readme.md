@@ -8,7 +8,7 @@
 ### Install
 - [install python](https://www.python.org)
 - [install nodejs](https://nodejs.org)
-- Switch to project directory.
+- switch to project directory.
 - `npm install` (init)
 - `ts-node .\index.ts --help`
 - `ts-node .\index.ts -d dppn` (rebuild dppn mdict)
