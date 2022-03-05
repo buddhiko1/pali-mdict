@@ -5,7 +5,7 @@
 - `ncped` : New Concise Pali - English Dictionary
 - `dppn` : Dictionary of Pali Proper Names
 
-### Install
+### Make
 - [install python](https://www.python.org)
 - `pip install mdict-utils`
 - [install nodejs](https://nodejs.org)
