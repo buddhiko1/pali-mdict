@@ -7,5 +7,11 @@
 - `nyana` : Nyanatiloka: Buddhist Dictionary
 
 ### Install
-- npm install
-- npm run build
+- [install python](https://www.python.org)
+- [install nodejs](https://nodejs.org)
+- Switch to code directory.
+- `npm install` (init project.)
+- `ts-node .\index.ts --help`
+- `ts-node .\index.ts -d dppn` (rebuild dppn mdict.)
+- `ts-node .\index.ts -p -d pts` (pull raw data and rebuild pts mdict.)
+- `ts-node .\index.ts -p -e -d ncped` (pull raw data and rebuild ncped mdict for eudic.)

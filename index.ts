@@ -14,14 +14,14 @@ program
       Object.values(DictEnum)
     )
   )
-  .option("-p, --pull", "pull the latest raw file from SuttaCentral")
+  .option("-p, --pull", "pull the latest raw file from SuttaCentral repository")
   .option("-e, --eudic", "for eudic")
   .action((options) => {
     if (!Object.values(DictEnum).includes(options.dict)) {
       console.error("error: invalid options!");
       process.exit();
     }
-    const forEudic = options.eudic ?? false
+    const forEudic = options.eudic ?? false;
     let maker = MakerFactory.create(options.dict);
     maker.make(options.pull, forEudic);
   });
