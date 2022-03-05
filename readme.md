@@ -14,3 +14,4 @@
 - `ts-node .\index.ts -d dppn` (rebuild dppn mdict)
 - `ts-node .\index.ts -p -d pts` (pull raw data and rebuild pts mdict)
 - `ts-node .\index.ts -p -e -d ncped` (pull raw data and rebuild ncped mdict for eudic)
+- download generated dict from ./assets .
