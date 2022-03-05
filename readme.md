@@ -7,6 +7,7 @@
 
 ### Install
 - [install python](https://www.python.org)
+- `pip install mdict-utils`
 - [install nodejs](https://nodejs.org)
 - switch to project directory.
 - `npm install` (init)
