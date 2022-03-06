@@ -5,6 +5,10 @@
 - `ncped` : New Concise Pali - English Dictionary
 - `dppn` : Dictionary of Pali Proper Names
 
+### Preview
+![image](https://github.com/dhammena/dict/releases/download/pali-mdict/Pali-GoldenDict.png)
+![image](https://github.com/dhammena/dict/releases/download/pali-mdict/Pali-Eudic.png)
+
 ### Make
 - [install python](https://www.python.org)
 - `pip install mdict-utils`
