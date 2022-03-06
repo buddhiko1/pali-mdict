@@ -11,7 +11,7 @@
 
 ### Download
 - [For GoldenDict](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.GoldenDict.zip)
-- [for Eudic](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.eudic.zip)
+- [For Eudic](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.eudic.zip)
 
 ### Make
 - [install python](https://www.python.org)
