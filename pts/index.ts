@@ -60,13 +60,13 @@ export class Maker extends BaseMaker {
     let result = "";
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
     let matchedArray = [...entry.text.matchAll(ddRegexp)];
-    for (let dd of matchedArray) {
+    for (let [index, dd] of matchedArray.entries()) {
       let [ddGrammarHtml, ddHtml] = this._extractDdGrammarHtml(dd[0]);
       ddHtml = this._replaceKeywordLink(ddHtml);
       if (isSingleDdEntry) {
         result += ddHtml
       } else {
-        let ddTitleHtml = `<div class='subTitle'><span class='word'>${entry.word}<sup>${dd?.groups?.index}</sup></span>${ddGrammarHtml}</div>`;
+        let ddTitleHtml = `<div class='subTitle'><span class='word'>${entry.word}<sup>${dd?.groups?.index ?? index + 1}</sup></span>${ddGrammarHtml}</div>`;
         result += ddTitleHtml + ddHtml; 
       }
     }
