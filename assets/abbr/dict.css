@@ -1,0 +1,24 @@
+body {
+  font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
+  font-size: 13px;
+  background-color: #FEFDEB;
+}
+
+.entry {
+  font-size: 1.2rem;
+  color: maroon;
+}
+
+.type {
+  color: brown;
+  margin-left: 0.7rem;
+  font-size: small;
+  display: inline-block;
+}
+
+.definition {
+  margin: 0 0;  
+  padding: 1.2rem 1.5rem; 
+  color: #008080;
+  line-height: 1.5rem;
+}

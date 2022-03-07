@@ -33,4 +33,10 @@ export interface IDppn {
   text: string;
 }
 
-export type Entry = IPts | INcped | IDppn;
+export interface IAbbr {
+  abbr: string;
+  text: string;
+  type: string;
+}
+
+export type Entry = IPts | INcped | IDppn | IAbbr;

@@ -14,6 +14,7 @@ export enum DictEnum {
   PTS = "pts",
   DPPN = "dppn",
   NCPED = "ncped",
+  ABBR = "abbr"
 };
 
 export const ASSETS_DIR = `${__dirname}/assets`;
@@ -45,5 +46,12 @@ export const DICTIONARY: dictionary = {
     outputDir: `${ASSETS_DIR}/${DictEnum.NCPED}`,
     moduleDir: `${__dirname}/${DictEnum.NCPED}`,
   },
+  [DictEnum.ABBR]: {
+    rawUrl:`${__dirname}/${DictEnum.ABBR}/dict.json`,
+    fullName: "New Concise Pali-English Dictionary",
+    shortName: DictEnum.ABBR,
+    outputDir: `${ASSETS_DIR}/${DictEnum.ABBR}`,
+    moduleDir: `${__dirname}/${DictEnum.ABBR}`,
+  }
 };
 

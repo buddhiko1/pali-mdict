@@ -97,6 +97,7 @@ dd > ol > li {
   display: block;
   color: gray;
   font-size: 0.7rem;
+  margin-right: 0.5rem;
 }
 
 .compounds {
@@ -138,7 +139,15 @@ h3 ~ .lower-latin {
   margin-left: 1.3rem;
 }
 
+h3 ~ .upper-latin {
+  margin-left: 1.3rem;
+}
+
 .decimal .lower-latin {
+  margin-left: 0.8rem;
+}
+
+li > .lower-latin {
   margin-left: 0.8rem;
 }
 

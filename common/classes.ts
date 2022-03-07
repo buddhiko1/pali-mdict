@@ -7,7 +7,6 @@ import { Entry, IDictConf } from "./interfaces";
 import { FILENAME_MAP } from "../config"
 
 export abstract class BaseMaker {
-  protected count: number = 0
   constructor(private conf: IDictConf) {}
 
   public clean(): void {
@@ -35,7 +34,6 @@ export abstract class BaseMaker {
     }
     let txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
-    console.log(`count: ${this.count}\n`)
     this._makeTitleFile(forEudic);
     this._makeDescriptionFile();
     await this._makeMdxFile();
@@ -49,7 +47,7 @@ export abstract class BaseMaker {
     }
   }
 
-  private async _downloadRawFile(): Promise<void> {
+  protected async _downloadRawFile(): Promise<void> {
     console.info("downloading raw file...");
     fs.writeFileSync(this.rawFile, await download(this.conf.rawUrl));
     console.info("download finished");

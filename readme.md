@@ -4,6 +4,7 @@
 - `pts` : Pali Text Society Pali - English Dictionary
 - `ncped` : New Concise Pali - English Dictionary
 - `dppn` : Dictionary of Pali Proper Names
+- `abbr` : Dictionary of book and grammatical term's abbreviation
 
 ### Preview
 ![image](https://github.com/dhammena/dict/releases/download/pali-mdict/Pali-GoldenDict.png)
