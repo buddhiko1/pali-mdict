@@ -10,8 +10,8 @@
 ![image](https://github.com/dhammena/pali-mdict/blob/master/assets/preview.png)
 
 ### Download
-- [For GoldenDict](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.GoldenDict.zip)
-- [For Eudic](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.eudic.zip)
+- [For GoldenDict](https://github.com/dhammena/pali-mdict/releases/download/2022-3-8/ForGoldenDict.zip)
+- [For Eudic](https://github.com/dhammena/pali-mdict/releases/download/2022-3-8/ForEudict.zip)
 
 ### Make
 - [install python](https://www.python.org)
