@@ -71,3 +71,7 @@ body {
   color: maroon;
   padding: 0.2rem 0 0.2rem 0;
 }
+
+.bottom {
+  margin-bottom: 1.5rem;
+}
