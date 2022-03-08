@@ -7,8 +7,7 @@
 - `abbr` : Dictionary of book and grammatical term's abbreviation
 
 ### Preview
-![image](https://github.com/dhammena/dict/releases/download/pali-mdict/Pali-GoldenDict.png)
-![image](https://github.com/dhammena/dict/releases/download/pali-mdict/Pali-Eudic.png)
+![image](https://github.com/dhammena/pali-mdict/blob/master/assets/preview.png)
 
 ### Download
 - [For GoldenDict](https://github.com/dhammena/dict/releases/download/pali-mdict/PaliMdict.GoldenDict.zip)
