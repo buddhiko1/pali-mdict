@@ -3,17 +3,21 @@ import { render } from "template-file";
 
 import { BaseMaker } from "../common/classes";
 import { IPts, IDictConf } from "../common/interfaces";
+import { GeneratorByDownload } from "../common/jsonFileGenerator";
 import { FILENAME_MAP } from "../config";
 
 export class Maker extends BaseMaker {
   constructor(conf: IDictConf) {
-    super(conf);
+    let jsonFileGenerator = new GeneratorByDownload(conf);
+    super(conf, jsonFileGenerator);
   }
 
   protected _generateEntryHtml(entry: IPts): string {
     entry.text = this._rmRedundanceDtTag(entry);
-    let isSingleDdEntry = this._isSingleDdEntry(entry)
-    let entryGrammarHtml = isSingleDdEntry ? this._getEntryGrammarHtml(entry) : '' 
+    let isSingleDdEntry = this._isSingleDdEntry(entry);
+    let entryGrammarHtml = isSingleDdEntry
+      ? this._getEntryGrammarHtml(entry)
+      : "";
     const data = {
       entry: entry.word,
       entryGrammarHtml,
@@ -56,7 +60,7 @@ export class Maker extends BaseMaker {
     return matchedArray.length === 1;
   }
 
-  private _generateTextHtml(entry: IPts, isSingleDdEntry:boolean): string {
+  private _generateTextHtml(entry: IPts, isSingleDdEntry: boolean): string {
     let result = "";
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
     let matchedArray = [...entry.text.matchAll(ddRegexp)];
@@ -64,10 +68,14 @@ export class Maker extends BaseMaker {
       let [ddGrammarHtml, ddHtml] = this._extractDdGrammarHtml(dd[0]);
       ddHtml = this._replaceKeywordLink(ddHtml);
       if (isSingleDdEntry) {
-        result += ddHtml
+        result += ddHtml;
       } else {
-        let ddTitleHtml = `<div class='subTitle'><span class='word'>${entry.word}<sup>${dd?.groups?.index ?? index + 1}</sup></span>${ddGrammarHtml}</div>`;
-        result += ddTitleHtml + ddHtml; 
+        let ddTitleHtml = `<div class='subTitle'><span class='word'>${
+          entry.word
+        }<sup>${
+          dd?.groups?.index ?? index + 1
+        }</sup></span>${ddGrammarHtml}</div>`;
+        result += ddTitleHtml + ddHtml;
       }
     }
     return result;
@@ -78,13 +86,21 @@ export class Maker extends BaseMaker {
     let matchedArray = [...ddHtml.matchAll(regexp)];
     if (matchedArray.length) {
       let grammarHtml = `<span class='grammar'>( ${matchedArray[0].groups?.grammar} )</span>`;
-      return [grammarHtml, ddHtml.replace(regexp, "")]
+      return [grammarHtml, ddHtml.replace(regexp, "")];
     }
     return ["", ddHtml];
   }
 
-  private _replaceKeywordLink(text: string):string {
+  private _replaceKeywordLink(text: string): string {
     const regexp = /<a href='\/define\/(.*?)'>/g;
     return text.replace(regexp, "<a class='linkTerm' href='entry://$1'>");
+  }
+
+  protected get jsonFile(): string {
+    return `${__dirname}/${FILENAME_MAP.json}`;
+  }
+
+  protected get entryTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.entryTemplate}`;
   }
 }

@@ -1,13 +1,15 @@
 import fs from "fs";
 import execSh from "exec-sh";
 import { render } from "template-file";
-import download from "download";
 
-import { Entry, IDictConf } from "./interfaces";
+import { IEntry, IDictConf, IJsonFileGenerator } from "./interfaces";
 import { FILENAME_MAP } from "../config"
 
 export abstract class BaseMaker {
-  constructor(private conf: IDictConf) {}
+  constructor(
+    private conf: IDictConf,
+    private jsonFileGenerator: IJsonFileGenerator
+  ) {}
 
   public clean(): void {
     console.log("remove temporary files ...\n");
@@ -22,16 +24,9 @@ export abstract class BaseMaker {
     }
   }
 
-  async make(pull: boolean, forEudic: boolean): Promise<void> {
+  async make(download: boolean, forEudic: boolean): Promise<void> {
     console.info(`making ${this.conf.shortName} mdict ...\n`);
-    this._init();
-    if (pull) {
-      this._downloadRawFile();
-    } else {
-      if (!fs.existsSync(this.rawFile)) {
-        await this._downloadRawFile();
-      }
-    }
+    await this._init(download);
     let txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
     this._makeTitleFile(forEudic);
@@ -41,31 +36,31 @@ export abstract class BaseMaker {
     console.info(`${this.conf.shortName} mdict created!\n`);
   }
 
-  private _init(): void {
+  private async _init(download: boolean): Promise<void> {
     if (!fs.existsSync(this.conf.outputDir)) {
       fs.mkdirSync(this.conf.outputDir, { recursive: true });
     }
-  }
-
-  protected async _downloadRawFile(): Promise<void> {
-    console.info("downloading raw file...");
-    fs.writeFileSync(this.rawFile, await download(this.conf.rawUrl));
-    console.info("download finished");
+    if (download) {
+      await this.jsonFileGenerator.generate(this.jsonFile);
+    }
+    if (!fs.existsSync(this.jsonFile)) {
+      await this.jsonFileGenerator.generate(this.jsonFile);
+    }
   }
 
   private _generateTxtStr(): string {
     let result: string = "";
-    const rawData = fs.readFileSync(this.rawFile);
-    let json = JSON.parse(rawData.toString());
+    const jsonData = fs.readFileSync(this.jsonFile);
+    let json = JSON.parse(jsonData.toString());
     for (let entry of json) {
-      entry = <Entry>entry;
+      entry = <IEntry>entry;
       result += this._generateEntryHtml(entry);
       result += "</>\r\n"; // Split string of entry
     }
     return result;
   }
 
-  protected abstract _generateEntryHtml(entry: Entry): string;
+  protected abstract _generateEntryHtml(entry: IEntry): string;
 
   private _makeTxtFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.
@@ -88,11 +83,11 @@ export abstract class BaseMaker {
   }
 
   private _makeDescriptionFile() {
-    const rawData = fs.readFileSync(this.rawFile);
-    let json = JSON.parse(rawData.toString());
+    const jsonData = fs.readFileSync(this.jsonFile);
+    let json = JSON.parse(jsonData.toString());
     const data = {
       fullName: this.conf.fullName,
-      rawUrl: this.conf.rawUrl,
+      jsonUrl: this.conf.jsonUrl,
       entries: json.length,
     };
     const template = fs.readFileSync(this.descriptionTemplateFile, "utf8");
@@ -111,9 +106,9 @@ export abstract class BaseMaker {
     }
   }
 
-  private get rawFile(): string {
-    return `${this.conf.moduleDir}/${FILENAME_MAP.raw}`;
-  }
+  protected abstract get jsonFile(): string;
+
+  protected abstract get entryTemplateFile(): string;
 
   private get txtOutputFile(): string {
     return `${this.conf.outputDir}/${FILENAME_MAP.txt}`;
@@ -133,9 +128,5 @@ export abstract class BaseMaker {
 
   private get descriptionOutputFile(): string {
     return `${this.conf.outputDir}/${FILENAME_MAP.description}`;
-  }
-
-  protected get entryTemplateFile(): string {
-    return `${this.conf.moduleDir}/${FILENAME_MAP.entryTemplate}`;
   }
 }

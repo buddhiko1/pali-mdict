@@ -10,20 +10,20 @@ program
   .name("ts-node")
   .usage("index.ts [options]")
   .addOption(
-    new Option("-d, --dict <dict>", "dictionary").choices(
+    new Option("-t, --type <type>", "dictionary type").choices(
       Object.values(DictEnum)
     )
   )
-  .option("-p, --pull", "pull the latest raw file from SuttaCentral repository")
+  .option("-d, --download", "download the latest json file from SuttaCentral repository")
   .option("-e, --eudic", "for eudic")
   .action((options) => {
-    if (!Object.values(DictEnum).includes(options.dict)) {
+    if (!Object.values(DictEnum).includes(options.type)) {
       console.error("error: invalid options!");
       process.exit();
     }
     const forEudic = options.eudic ?? false;
-    let maker = MakerFactory.create(options.dict);
-    maker.make(options.pull, forEudic);
+    let maker = MakerFactory.create(options.type);
+    maker.make(options.download, forEudic);
   });
 
 program.parse(process.argv);

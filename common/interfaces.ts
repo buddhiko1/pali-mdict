@@ -1,14 +1,13 @@
 export interface IDictConf {
-  rawUrl: string; // for downloading raw file
-  fullName: string; // full name of dictionary
-  shortName: string; // short name of dictionary
+  jsonUrl: string;
+  fullName: string;
+  shortName: string;
   outputDir: string; 
-  moduleDir: string;
 }
 
 export interface IFileNameMap {
   entryTemplate: string; // layout must compliance with the mdict standard
-  raw: string; // file name of raw dict data
+  json: string; // name of dict's json file
   css: string; // dict stylesheet
   txt: string; // for building mdx with mdx-builder
   title: string; // for building mdx with mdx-builder
@@ -39,4 +38,8 @@ export interface IAbbr {
   type: string;
 }
 
-export type Entry = IPts | INcped | IDppn | IAbbr;
+export type IEntry = IPts | INcped | IDppn | IAbbr;
+
+export interface IJsonFileGenerator {
+  generate(destinationPath: string): Promise<void>;
+}

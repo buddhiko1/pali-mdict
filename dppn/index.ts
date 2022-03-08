@@ -2,14 +2,16 @@ import fs from "fs";
 import { render } from "template-file";
 
 import { BaseMaker } from "../common/classes"; 
-import { IDppn, IDictConf } from "../common/interfaces"
+import { IDppn, IDictConf } from "../common/interfaces";
+import { GeneratorByDownload } from "../common/jsonFileGenerator";
 import { FILENAME_MAP } from "../config";
 
 export class Maker extends BaseMaker {
   constructor(conf: IDictConf) {
-    super(conf);
+    let jsonFileGenerator = new GeneratorByDownload(conf);
+    super(conf, jsonFileGenerator);
   }
-  
+
   protected _generateEntryHtml(entry: IDppn): string {
     const data = {
       entry: entry.word,
@@ -53,5 +55,13 @@ export class Maker extends BaseMaker {
     }
 
     return result;
+  }
+
+  protected get jsonFile(): string {
+    return `${__dirname}/${FILENAME_MAP.json}`;
+  }
+
+  protected get entryTemplateFile(): string {
+    return `${__dirname}/${FILENAME_MAP.entryTemplate}`;
   }
 }

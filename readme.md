@@ -20,7 +20,7 @@
 - switch to project directory.
 - `npm install` (init)
 - `ts-node .\index.ts --help`
-- `ts-node .\index.ts -d dppn` (rebuild dppn mdict)
-- `ts-node .\index.ts -p -d pts` (pull raw data and rebuild pts mdict)
-- `ts-node .\index.ts -p -e -d ncped` (pull raw data and rebuild ncped mdict for eudic)
+- `ts-node .\index.ts -t dppn` (rebuild dppn)
+- `ts-node .\index.ts -d -t pts` (download json file and rebuild pts)
+- `ts-node .\index.ts -d -e -t ncped` (download json file and rebuild ncped for eudic)
 - download generated dict from ./assets .
