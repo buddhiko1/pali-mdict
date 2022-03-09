@@ -1,12 +1,12 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { BaseMaker } from "../common/classes";
+import { MakerBase } from "../common/classes";
 import { IAbbr, IDictConf } from "../common/interfaces";
 import { GeneratorByHand } from "../common/jsonFileGenerator";
-import { FILENAME_MAP } from "../config";
+import { FILENAME } from "../config";
 
-export class Maker extends BaseMaker {
+export class Maker extends MakerBase {
   constructor(conf: IDictConf) {
     let jsonFileGenerator = new GeneratorByHand(conf);
     super(conf, jsonFileGenerator);
@@ -16,18 +16,18 @@ export class Maker extends BaseMaker {
     const data = {
       entry: entry.abbr,
       type: entry.type,
-      cssFileName: FILENAME_MAP.css,
+      cssFileName: FILENAME.css,
       text: entry.text,
     };
-    const template = fs.readFileSync(this.entryTemplateFile, "utf8");
+    const template = fs.readFileSync(this._entryTemplateFile, "utf8");
     return render(template, data);
   }
 
-  protected get jsonFile(): string {
-    return `${__dirname}/${FILENAME_MAP.json}`;
+  protected get _jsonFile(): string {
+    return `${__dirname}/${FILENAME.json}`;
   }
 
-  protected get entryTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.entryTemplate}`;
+  protected get _entryTemplateFile(): string {
+    return `${__dirname}/${FILENAME.entryTemplate}`;
   }
 }

@@ -1,6 +1,6 @@
-import { IDictConf, IFileNameMap } from "./common/interfaces";
+import { IDictConf, IFileName as IFileName } from "./common/interfaces";
 
-export const FILENAME_MAP: IFileNameMap = {
+export const FILENAME: IFileName = {
   entryTemplate: 'entry.html',
   json: "dict.json",
   css: "dict.css",
@@ -44,7 +44,6 @@ export const DICTIONARY: dictionary = {
     outputDir: `${ASSETS_DIR}/${DictEnum.NCPED}`,
   },
   [DictEnum.ABBR]: {
-    jsonUrl:`${__dirname}/${DictEnum.ABBR}/dict.json`,
     fullName: "New Concise Pali-English Dictionary",
     shortName: DictEnum.ABBR,
     outputDir: `${ASSETS_DIR}/${DictEnum.ABBR}`,

@@ -3,24 +3,24 @@ import execSh from "exec-sh";
 import { render } from "template-file";
 
 import { IEntry, IDictConf, IJsonFileGenerator } from "./interfaces";
-import { FILENAME_MAP } from "../config"
+import { FILENAME } from "../config"
 
-export abstract class BaseMaker {
+export abstract class MakerBase {
   constructor(
     private conf: IDictConf,
     private jsonFileGenerator: IJsonFileGenerator
   ) {}
 
-  public clean(): void {
+  clean(): void {
     console.log("remove temporary files ...\n");
-    if (fs.existsSync(this.txtOutputFile)) {
-      fs.unlinkSync(this.txtOutputFile);
+    if (fs.existsSync(this._txtOutputFile)) {
+      fs.unlinkSync(this._txtOutputFile);
     }
-    if (fs.existsSync(this.titleOutputFile)) {
-      fs.unlinkSync(this.titleOutputFile);
+    if (fs.existsSync(this._titleOutputFile)) {
+      fs.unlinkSync(this._titleOutputFile);
     }
-    if (fs.existsSync(this.descriptionOutputFile)) {
-      fs.unlinkSync(this.descriptionOutputFile);
+    if (fs.existsSync(this._descriptionOutputFile)) {
+      fs.unlinkSync(this._descriptionOutputFile);
     }
   }
 
@@ -41,16 +41,16 @@ export abstract class BaseMaker {
       fs.mkdirSync(this.conf.outputDir, { recursive: true });
     }
     if (download) {
-      await this.jsonFileGenerator.generate(this.jsonFile);
+      await this.jsonFileGenerator.generate(this._jsonFile);
     }
-    if (!fs.existsSync(this.jsonFile)) {
-      await this.jsonFileGenerator.generate(this.jsonFile);
+    if (!fs.existsSync(this._jsonFile)) {
+      await this.jsonFileGenerator.generate(this._jsonFile);
     }
   }
 
   private _generateTxtStr(): string {
     let result: string = "";
-    const jsonData = fs.readFileSync(this.jsonFile);
+    const jsonData = fs.readFileSync(this._jsonFile);
     let json = JSON.parse(jsonData.toString());
     for (let entry of json) {
       entry = <IEntry>entry;
@@ -65,7 +65,7 @@ export abstract class BaseMaker {
   private _makeTxtFile(htmlStr: string): void {
     // Replace LF with CRLF for bug fixing of mdx builder.
     // htmlStr = htmlStr.replace(/[^\r]\n/g, "\r\n");
-    fs.writeFileSync(this.txtOutputFile, htmlStr, "utf-8");
+    fs.writeFileSync(this._txtOutputFile, htmlStr, "utf-8");
   }
 
   private _makeTitleFile(forEudic: boolean) {
@@ -76,27 +76,26 @@ export abstract class BaseMaker {
       const data = {
         title: this.conf.shortName.toLocaleUpperCase(),
       };
-      const template = fs.readFileSync(this.titleTemplateFile, "utf8");
+      const template = fs.readFileSync(this._titleTemplateFile, "utf8");
       htmlStr = render(template, data);
     }
-    fs.writeFileSync(this.titleOutputFile, htmlStr, "utf-8");
+    fs.writeFileSync(this._titleOutputFile, htmlStr, "utf-8");
   }
 
   private _makeDescriptionFile() {
-    const jsonData = fs.readFileSync(this.jsonFile);
+    const jsonData = fs.readFileSync(this._jsonFile);
     let json = JSON.parse(jsonData.toString());
     const data = {
       fullName: this.conf.fullName,
-      jsonUrl: this.conf.jsonUrl,
       entries: json.length,
     };
-    const template = fs.readFileSync(this.descriptionTemplateFile, "utf8");
+    const template = fs.readFileSync(this._descriptionTemplateFile, "utf8");
     const htmlStr = render(template, data);
-    fs.writeFileSync(this.descriptionOutputFile, htmlStr, "utf-8");
+    fs.writeFileSync(this._descriptionOutputFile, htmlStr, "utf-8");
   }
 
   private async _makeMdxFile() {
-    const command = `mdict --title ${FILENAME_MAP.title} --description ${FILENAME_MAP.description} -a ${FILENAME_MAP.txt} ${FILENAME_MAP.mdx}`;
+    const command = `mdict --title ${FILENAME.title} --description ${FILENAME.description} -a ${FILENAME.txt} ${FILENAME.mdx}`;
     try {
       let result = await execSh.promise(command, { cwd: this.conf.outputDir });
       console.info(result.stdout);
@@ -106,27 +105,27 @@ export abstract class BaseMaker {
     }
   }
 
-  protected abstract get jsonFile(): string;
+  protected abstract get _jsonFile(): string;
 
-  protected abstract get entryTemplateFile(): string;
+  protected abstract get _entryTemplateFile(): string;
 
-  private get txtOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.txt}`;
+  private get _txtOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME.txt}`;
   }
 
-  private get titleTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.title}`;
+  private get _titleTemplateFile(): string {
+    return `${__dirname}/${FILENAME.title}`;
   }
 
-  private get titleOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.title}`;
+  private get _titleOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME.title}`;
   }
 
-  private get descriptionTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.description}`;
+  private get _descriptionTemplateFile(): string {
+    return `${__dirname}/${FILENAME.description}`;
   }
 
-  private get descriptionOutputFile(): string {
-    return `${this.conf.outputDir}/${FILENAME_MAP.description}`;
+  private get _descriptionOutputFile(): string {
+    return `${this.conf.outputDir}/${FILENAME.description}`;
   }
 }

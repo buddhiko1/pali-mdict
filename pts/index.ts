@@ -1,12 +1,12 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { BaseMaker } from "../common/classes";
+import { MakerBase } from "../common/classes";
 import { IPts, IDictConf } from "../common/interfaces";
 import { GeneratorByDownload } from "../common/jsonFileGenerator";
-import { FILENAME_MAP } from "../config";
+import { FILENAME } from "../config";
 
-export class Maker extends BaseMaker {
+export class Maker extends MakerBase {
   constructor(conf: IDictConf) {
     let jsonFileGenerator = new GeneratorByDownload(conf);
     super(conf, jsonFileGenerator);
@@ -22,9 +22,9 @@ export class Maker extends BaseMaker {
       entry: entry.word,
       entryGrammarHtml,
       textHtml: this._generateTextHtml(entry, isSingleDdEntry),
-      cssFileName: FILENAME_MAP.css,
+      cssFileName: FILENAME.css,
     };
-    const template = fs.readFileSync(this.entryTemplateFile, "utf8");
+    const template = fs.readFileSync(this._entryTemplateFile, "utf8");
     return render(template, data);
   }
 
@@ -96,11 +96,11 @@ export class Maker extends BaseMaker {
     return text.replace(regexp, "<a class='linkTerm' href='entry://$1'>");
   }
 
-  protected get jsonFile(): string {
-    return `${__dirname}/${FILENAME_MAP.json}`;
+  protected get _jsonFile(): string {
+    return `${__dirname}/${FILENAME.json}`;
   }
 
-  protected get entryTemplateFile(): string {
-    return `${__dirname}/${FILENAME_MAP.entryTemplate}`;
+  protected get _entryTemplateFile(): string {
+    return `${__dirname}/${FILENAME.entryTemplate}`;
   }
 }
