@@ -1,14 +1,4 @@
-import { IDictConf, IFileName as IFileName } from "./common/interfaces";
-
-export const FILENAME: IFileName = {
-  entryTemplate: 'entry.html',
-  json: "dict.json",
-  css: "dict.css",
-  txt: "dict.txt",
-  title: "title.html",
-  description: "description.html",
-  mdx: "dict.mdx"
-}
+import { IDictConf, IFileName } from "./common/interfaces";
 
 export enum DictEnum {
   PTS = "pts",
@@ -17,9 +7,19 @@ export enum DictEnum {
   ABBR = "abbr"
 };
 
+type dictionary = Record<DictEnum, IDictConf>;
+
 export const ASSETS_DIR = `${__dirname}/assets`;
 
-type dictionary = Record<DictEnum, IDictConf>
+export const FILENAME: IFileName = {
+  entryTemplate: "entry.html",
+  json: "dict.json",
+  css: "dict.css",
+  txt: "dict.txt",
+  title: "title.html",
+  description: "description.html",
+  mdx: "dict.mdx",
+};
 
 export const DICTIONARY: dictionary = {
   [DictEnum.PTS]: {

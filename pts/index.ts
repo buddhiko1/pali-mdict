@@ -2,8 +2,9 @@ import fs from "fs";
 import { render } from "template-file";
 
 import { MakerBase } from "../common/classes";
-import { IPts, IDictConf } from "../common/interfaces";
+import { IDictConf } from "../common/interfaces";
 import { GeneratorByDownload } from "../common/jsonFileGenerator";
+import { IPts } from "./interfaces";
 import { FILENAME } from "../config";
 
 export class Maker extends MakerBase {

@@ -1,3 +1,8 @@
+import { IPts } from "../pts/interfaces";
+import { IAbbr } from "../abbr/interfaces";
+import { IDppn } from "../dppn/interfaces";
+import { INcped } from "../ncped/interfaces";
+
 export interface IDictConf {
   jsonUrl?: string;
   fullName: string;
@@ -13,29 +18,6 @@ export interface IFileName {
   title: string;          // for building mdx with mdx-builder
   description: string;    // for building mdx with mdx-builder
   mdx: string;            // result mdict file
-}
-
-export interface IPts {
-  word: string;
-  text: string;
-}
-
-export interface INcped {
-  entry: string;
-  grammar?: string;
-  definition?: string | string[];
-  xr?: string | string[]; // cross references
-}
-
-export interface IDppn {
-  word: string;
-  text: string;
-}
-
-export interface IAbbr {
-  abbr: string;
-  text: string;
-  type: string;
 }
 
 export type IEntry = IPts | INcped | IDppn | IAbbr;
