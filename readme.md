@@ -17,6 +17,7 @@
 - [install python](https://www.python.org)
 - `pip install mdict-utils`
 - [install nodejs](https://nodejs.org)
+- install ts-node `sudo npm install -g ts-node`
 - switch to project directory.
 - `npm install` (init)
 - `ts-node .\index.ts --help`
