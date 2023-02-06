@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import fs from "fs";
 import { render } from "template-file";
 
-import { MakerBase } from "../common/classes";
-import { IDictConf } from "../common/interfaces";
-import { GeneratorByDownload } from "../common/jsonFileGenerator";
+import { MakerBase } from "../public/classes";
+import { IDictConf } from "../public/interfaces";
+import { GeneratorByDownload } from "../public/jsonFileGenerator";
 import { IPts } from "./interfaces";
 import { FILENAME } from "../config";
 
@@ -66,6 +67,7 @@ export class Maker extends MakerBase {
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
     const matchedArray = [...entry.text.matchAll(ddRegexp)];
     for (const [index, dd] of matchedArray.entries()) {
+      // eslint-disable-next-line prefer-const
       let [ddGrammarHtml, ddHtml] = this._extractDdGrammarHtml(dd[0]);
       ddHtml = this._replaceKeywordLink(ddHtml);
       if (isSingleDdEntry) {

@@ -2,7 +2,7 @@ import { Maker as NcpedMaker } from "./ncped";
 import { Maker as DppnMaker } from "./dppn";
 import { Maker as PtsMaker } from "./pts";
 import { Maker as AbbrMaker } from "./abbr";
-import { MakerBase } from "./common/classes";
+import { MakerBase } from "./public/classes";
 import { DictEnum, DICTIONARY } from "./config";
 
 export class MakerFactory {

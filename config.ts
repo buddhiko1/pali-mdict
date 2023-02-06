@@ -1,4 +1,4 @@
-import { IDictConf, IFileName } from "./common/interfaces";
+import { IDictConf, IFileName } from "./public/interfaces";
 
 export enum DictEnum {
   PTS = "pts",

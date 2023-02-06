@@ -1,9 +1,9 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { MakerBase } from "../common/classes";
-import { IDictConf } from "../common/interfaces";
-import { GeneratorByHand } from "../common/jsonFileGenerator";
+import { MakerBase } from "../public/classes";
+import { IDictConf } from "../public/interfaces";
+import { GeneratorByHand } from "../public/jsonFileGenerator";
 import { IAbbr } from "./interfaces";
 import { FILENAME } from "../config";
 

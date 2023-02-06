@@ -17,6 +17,7 @@ export class GeneratorByDownload implements IJsonFileGenerator {
 
 export class GeneratorByHand implements IJsonFileGenerator {
   constructor(private conf: IDictConf) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async generate(jsonFile: string): Promise<void> {
     console.info("json file generated!");
   }
