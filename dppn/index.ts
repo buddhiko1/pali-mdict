@@ -1,7 +1,7 @@
 import fs from "fs";
 import { render } from "template-file";
 
-import { MakerBase } from "../common/classes"; 
+import { MakerBase } from "../common/classes";
 import { IDictConf } from "../common/interfaces";
 import { GeneratorByDownload } from "../common/jsonFileGenerator";
 import { IDppn } from "./interfaces";
@@ -9,7 +9,7 @@ import { FILENAME } from "../config";
 
 export class Maker extends MakerBase {
   constructor(conf: IDictConf) {
-    let jsonFileGenerator = new GeneratorByDownload(conf);
+    const jsonFileGenerator = new GeneratorByDownload(conf);
     super(conf, jsonFileGenerator);
   }
 
@@ -25,8 +25,8 @@ export class Maker extends MakerBase {
   }
 
   private _getEntryType(text: string): string {
-    let regex = /^<dl class='(?<entryType>[a-z]*)'>?/;
-    let matched = text.match(regex);
+    const regex = /^<dl class='(?<entryType>[a-z]*)'>?/;
+    const matched = text.match(regex);
     if (matched?.groups) {
       return matched.groups.entryType;
     }
@@ -36,7 +36,7 @@ export class Maker extends MakerBase {
   private _rmRedundanceDtTag(text: string): string {
     let result = text;
     const dtRegexp = /<dt>.*?<\/dt>/g;
-    let matched = result.match(dtRegexp);
+    const matched = result.match(dtRegexp);
 
     if (matched?.length === 1) {
       result = result.replace(dtRegexp, "");
@@ -44,10 +44,10 @@ export class Maker extends MakerBase {
 
     // remove a few exceptions
     if (matched?.length === 2) {
-      let matchedStr = matched.toString();
+      const matchedStr = matched.toString();
       if (!matchedStr.includes("<sup>")) {
         const regexp = />([^<>,]+)</g;
-        let alias = [...matchedStr.matchAll(regexp)].map((item) => item[1]);
+        const alias = [...matchedStr.matchAll(regexp)].map((item) => item[1]);
         if (alias[0] === alias[1]) {
           result = result.replace(matched[0], "");
           result = result.replace(matched[1], "");

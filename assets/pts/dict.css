@@ -1,7 +1,7 @@
 body {
   font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
   font-size: 13px;
-  background-color: #FFFEF2;
+  background-color: #fffef2;
 }
 
 .entry {
@@ -27,25 +27,25 @@ ol {
 span.ref {
   font-size: 0.7rem;
   font-weight: lighter;
-  color: gray
+  color: gray;
 }
 
 a.ref {
-  text-decoration:none;
+  text-decoration: none;
   border-bottom: 1px gray dotted;
   font-size: 0.7rem;
   font-weight: lighter;
-  color: gray
+  color: gray;
 }
 
 i.term {
   font-style: normal;
-  font-weight:100;
+  font-weight: 100;
   color: maroon;
 }
 
 .linkTerm {
-  text-decoration:none;
+  text-decoration: none;
   border-bottom: 1px maroon dotted;
   font-style: normal;
   color: maroon;
@@ -93,7 +93,7 @@ dd > ol > li {
 }
 
 .eti::before {
-  content: "Etymology";    
+  content: "Etymology";
   display: block;
   color: gray;
   font-size: 0.7rem;
@@ -108,7 +108,7 @@ dd > ol > li {
 }
 
 .compounds::before {
-  content: "Compounds";    
+  content: "Compounds";
   display: block;
   color: gray;
   font-size: 0.7rem;

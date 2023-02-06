@@ -14,7 +14,10 @@ program
       Object.values(DictEnum)
     )
   )
-  .option("-d, --download", "download the latest json file from SuttaCentral repository")
+  .option(
+    "-d, --download",
+    "download the latest json file from SuttaCentral repository"
+  )
   .option("-e, --eudic", "for eudic")
   .action((options) => {
     if (!Object.values(DictEnum).includes(options.type)) {
@@ -22,7 +25,7 @@ program
       process.exit();
     }
     const forEudic = options.eudic ?? false;
-    let maker = MakerFactory.create(options.type);
+    const maker = MakerFactory.create(options.type);
     maker.make(options.download, forEudic);
   });
 

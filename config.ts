@@ -4,8 +4,8 @@ export enum DictEnum {
   PTS = "pts",
   DPPN = "dppn",
   NCPED = "ncped",
-  ABBR = "abbr"
-};
+  ABBR = "abbr",
+}
 
 type dictionary = Record<DictEnum, IDictConf>;
 
@@ -47,6 +47,5 @@ export const DICTIONARY: dictionary = {
     fullName: "New Concise Pali-English Dictionary",
     shortName: DictEnum.ABBR,
     outputDir: `${ASSETS_DIR}/${DictEnum.ABBR}`,
-  }
+  },
 };
-

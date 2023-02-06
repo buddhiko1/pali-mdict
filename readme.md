@@ -1,19 +1,23 @@
-## Make Pali Mdict 
+## Make Pali Mdict
 
 ### Include
+
 - `pts` : Pali Text Society Pali - English Dictionary
 - `ncped` : New Concise Pali - English Dictionary
 - `dppn` : Dictionary of Pali Proper Names
 - `abbr` : Dictionary of book and grammatical term's abbreviation
 
 ### Preview
+
 ![image](https://github.com/dhammena/pali-mdict/blob/master/assets/preview.png)
 
 ### Download
+
 - [For GoldenDict](https://github.com/dhammena/pali-mdict/releases/download/2022-3-13/pali-mdict.GoldenDict.zip)
 - [For Eudic](https://github.com/dhammena/pali-mdict/releases/download/2022-3-13/pali-mdict.eudic.zip)
 
 ### Make
+
 - [install python](https://www.python.org)
 - `pip install mdict-utils`
 - [install nodejs](https://nodejs.org)

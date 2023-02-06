@@ -9,7 +9,7 @@ import { FILENAME } from "../config";
 
 export class Maker extends MakerBase {
   constructor(conf: IDictConf) {
-    let jsonFileGenerator = new GeneratorByHand(conf);
+    const jsonFileGenerator = new GeneratorByHand(conf);
     super(conf, jsonFileGenerator);
   }
 

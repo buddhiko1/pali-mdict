@@ -1,7 +1,7 @@
 body {
   font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
   font-size: 13px;
-  background-color: #FFFEF2;
+  background-color: #fffef2;
 }
 
 .entry {
@@ -17,8 +17,8 @@ body {
 }
 
 .definition {
-  margin: 0 0;  
-  padding: 1.2rem 1.5rem; 
+  margin: 0 0;
+  padding: 1.2rem 1.5rem;
   color: #008080;
   line-height: 1.5rem;
 }

@@ -3,7 +3,7 @@ import execSh from "exec-sh";
 import { render } from "template-file";
 
 import { IEntry, IDictConf, IJsonFileGenerator } from "./interfaces";
-import { FILENAME } from "../config"
+import { FILENAME } from "../config";
 
 export abstract class MakerBase {
   constructor(
@@ -27,7 +27,7 @@ export abstract class MakerBase {
   async make(download: boolean, forEudic: boolean): Promise<void> {
     console.info(`making ${this.conf.shortName} mdict ...\n`);
     await this._init(download);
-    let txtStr = this._generateTxtStr();
+    const txtStr = this._generateTxtStr();
     this._makeTxtFile(txtStr);
     this._makeTitleFile(forEudic);
     this._makeDescriptionFile();
@@ -49,9 +49,9 @@ export abstract class MakerBase {
   }
 
   private _generateTxtStr(): string {
-    let result: string = "";
+    let result = "";
     const jsonData = fs.readFileSync(this._jsonFile);
-    let json = JSON.parse(jsonData.toString());
+    const json = JSON.parse(jsonData.toString());
     for (let entry of json) {
       entry = <IEntry>entry;
       result += this._generateEntryHtml(entry);
@@ -84,7 +84,7 @@ export abstract class MakerBase {
 
   private _makeDescriptionFile() {
     const jsonData = fs.readFileSync(this._jsonFile);
-    let json = JSON.parse(jsonData.toString());
+    const json = JSON.parse(jsonData.toString());
     const data = {
       fullName: this.conf.fullName,
       entries: json.length,
@@ -97,7 +97,9 @@ export abstract class MakerBase {
   private async _makeMdxFile() {
     const command = `mdict --title ${FILENAME.title} --description ${FILENAME.description} -a ${FILENAME.txt} ${FILENAME.mdx}`;
     try {
-      let result = await execSh.promise(command, { cwd: this.conf.outputDir });
+      const result = await execSh.promise(command, {
+        cwd: this.conf.outputDir,
+      });
       console.info(result.stdout);
       console.error(result.stderr);
     } catch (e) {

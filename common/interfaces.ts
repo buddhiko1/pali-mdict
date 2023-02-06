@@ -7,17 +7,17 @@ export interface IDictConf {
   jsonUrl?: string;
   fullName: string;
   shortName: string;
-  outputDir: string; 
+  outputDir: string;
 }
 
 export interface IFileName {
-  entryTemplate: string;  // layout must compliance with the mdict standard
-  json: string;           // name of dict's json file
-  css: string;            // dict stylesheet
-  txt: string;            // for building mdx with mdx-builder
-  title: string;          // for building mdx with mdx-builder
-  description: string;    // for building mdx with mdx-builder
-  mdx: string;            // result mdict file
+  entryTemplate: string; // layout must compliance with the mdict standard
+  json: string; // name of dict's json file
+  css: string; // dict stylesheet
+  txt: string; // for building mdx with mdx-builder
+  title: string; // for building mdx with mdx-builder
+  description: string; // for building mdx with mdx-builder
+  mdx: string; // result mdict file
 }
 
 export type IEntry = IPts | INcped | IDppn | IAbbr;

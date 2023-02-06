@@ -1,7 +1,7 @@
 body {
   font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif;
   font-size: 13px;
-  background-color: #FFFEF2;
+  background-color: #fffef2;
 }
 
 .entry {
@@ -17,7 +17,7 @@ body {
 }
 
 i {
-  color:brown;
+  color: brown;
   font-style: normal;
 }
 
@@ -40,7 +40,7 @@ p {
   color: #008080;
   border: 1px dotted gray;
   padding: 1em;
-  background-color: #FDE6E0;
+  background-color: #fde6e0;
   font-size: 1em !important;
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -60,5 +60,5 @@ p {
   display: inline-block;
   font-size: 0.8em;
   font-weight: lighter;
-  color: gray
+  color: gray;
 }

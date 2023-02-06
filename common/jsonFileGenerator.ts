@@ -9,7 +9,7 @@ export class GeneratorByDownload implements IJsonFileGenerator {
     if (this.conf.jsonUrl) {
       fs.writeFileSync(jsonFile, await download(this.conf.jsonUrl));
     } else {
-      throw Error("invalid json url!")
+      throw Error("invalid json url!");
     }
     console.info("download finished!");
   }

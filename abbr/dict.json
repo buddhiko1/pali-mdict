@@ -1,1057 +1,1057 @@
 [
- {
-  "abbr": "A",
-  "text": "Anguttara",
-  "type": "book"
- },
- {
-  "abbr": "Abhp",
-  "text": "Abhidhānappadīpikā",
-  "type": "book"
- },
- {
-  "abbr": "Ap",
-  "text": "Apadāna",
-  "type": "book"
- },
- {
-  "abbr": "Av. Ś.",
-  "text": "Avadāna-śataka",
-  "type": "book"
- },
- {
-  "abbr": "Bdhd",
-  "text": "Buddhadatta",
-  "type": "book"
- },
- {
-  "abbr": "Bu",
-  "text": "Buddha-vaṃsa",
-  "type": "book"
- },
- {
-  "abbr": "Cp",
-  "text": "Cariyā-piṭaka",
-  "type": "book"
- },
- {
-  "abbr": "Cpd",
-  "text": "Compendium",
-  "type": "book"
- },
- {
-  "abbr": "D",
-  "text": "Dīgha",
-  "type": "book"
- },
- {
-  "abbr": "Dāvs",
-  "text": "Dāṭhā-vaṃsa",
-  "type": "book"
- },
- {
-  "abbr": "Dh",
-  "text": "Dhammapada",
-  "type": "book"
- },
- {
-  "abbr": "Dhs",
-  "text": "Dhammasangaṇi",
-  "type": "book"
- },
- {
-  "abbr": "Dhs trsl.",
-  "text": "Atthasālinī",
-  "type": "book"
- },
- {
-  "abbr": "Dial.",
-  "text": "Dialogues",
-  "type": "book"
- },
- {
-  "abbr": "Divy",
-  "text": "Divyâvadāna",
-  "type": "book"
- },
- {
-  "abbr": "Dpvs",
-  "text": "Dīpavaṃsa",
-  "type": "book"
- },
- {
-  "abbr": "It",
-  "text": "Itivuttaka",
-  "type": "book"
- },
- {
-  "abbr": "J",
-  "text": "Jātaka",
-  "type": "book"
- },
- {
-  "abbr": "J.A.O.S.",
-  "text": "Journal Amer. Or. Soc",
-  "type": "book"
- },
- {
-  "abbr": "J.As.",
-  "text": "Journal Asiatique",
-  "type": "book"
- },
- {
-  "abbr": "J.P.T.S.",
-  "text": "Journal Pāli Text Soc",
-  "type": "book"
- },
- {
-  "abbr": "J.R.A.S.",
-  "text": "Journal Royal Asiatic Soc",
-  "type": "book"
- },
- {
-  "abbr": "Jtm",
-  "text": "Jātakamālā",
-  "type": "book"
- },
- {
-  "abbr": "Kacc",
-  "text": "Kaccāyana",
-  "type": "book"
- },
- {
-  "abbr": "Kh",
-  "text": "Khuddakapāṭha",
-  "type": "book"
- },
- {
-  "abbr": "KS",
-  "text": "Kindred Sayings",
-  "type": "book"
- },
- {
-  "abbr": "Kvu",
-  "text": "Kathāvatthu",
-  "type": "book"
- },
- {
-  "abbr": "KZ",
-  "text": "Kuhn's Zeitschrift",
-  "type": "book"
- },
- {
-  "abbr": "Lal. V.",
-  "text": "Lalita Vistara",
-  "type": "book"
- },
- {
-  "abbr": "M",
-  "text": "Majjhima",
-  "type": "book"
- },
- {
-  "abbr": "Mhbv",
-  "text": "Mahābodhi-vaṃsa",
-  "type": "book"
- },
- {
-  "abbr": "Mhvs",
-  "text": "Mahāvaṃsa",
-  "type": "book"
- },
- {
-  "abbr": "Miln",
-  "text": "Milinda-pañha",
-  "type": "book"
- },
- {
-  "abbr": "M Vastu",
-  "text": "Mahā-vastu",
-  "type": "book"
- },
- {
-  "abbr": "Mvyut",
-  "text": "Mahāvyutpatti",
-  "type": "book"
- },
- {
-  "abbr": "Nd1",
-  "text": "Mahāniddesa",
-  "type": "book"
- },
- {
-  "abbr": "Nd2",
-  "text": "Cullaniddesa",
-  "type": "book"
- },
- {
-  "abbr": "Nett",
-  "text": "Netti-pakaraṇa",
-  "type": "book"
- },
- {
-  "abbr": "Pgdp",
-  "text": "Pañcagati-dīpana",
-  "type": "book"
- },
- {
-  "abbr": "Ps",
-  "text": "Paṭisambhidā-magga",
-  "type": "book"
- },
- {
-  "abbr": "Pug",
-  "text": "Puggala-paññatti",
-  "type": "book"
- },
- {
-  "abbr": "Pv",
-  "text": "Petavatthu",
-  "type": "book"
- },
- {
-  "abbr": "S",
-  "text": "Saṃyutta",
-  "type": "book"
- },
- {
-  "abbr": "SBE",
-  "text": "Sacred Books of the East",
-  "type": "book"
- },
- {
-  "abbr": "Sdhp",
-  "text": "Saddhammopāyana",
-  "type": "book"
- },
- {
-  "abbr": "Śikṣ",
-  "text": "Śikṣāsamuccaya",
-  "type": "book"
- },
- {
-  "abbr": "Sn",
-  "text": "Sutta-nipāta",
-  "type": "book"
- },
- {
-  "abbr": "Th1",
-  "text": "Theragāthā",
-  "type": "book"
- },
- {
-  "abbr": "Th2",
-  "text": "Therīgāthā",
-  "type": "book"
- },
- {
-  "abbr": "Toev.",
-  "text": "Toevoegselen",
-  "type": "book"
- },
- {
-  "abbr": "BR.",
-  "text": "Boehtlingk and Roth",
-  "type": "book"
- },
- {
-  "abbr": "Dhtm",
-  "text": "Dhātumañjūsa",
-  "type": "book"
- },
- {
-  "abbr": "Dhtp",
-  "text": "Dhātupāṭha",
-  "type": "book"
- },
- {
-  "abbr": "Ud",
-  "text": "Udāna",
-  "type": "book"
- },
- {
-  "abbr": "Vbh",
-  "text": "Vibhanga",
-  "type": "book"
- },
- {
-  "abbr": "Vin",
-  "text": "Vinaya",
-  "type": "book"
- },
- {
-  "abbr": "Vism",
-  "text": "Visuddhi-magga",
-  "type": "book"
- },
- {
-  "abbr": "Vv",
-  "text": "Vimānavatthu",
-  "type": "book"
- },
- {
-  "abbr": "A",
-  "text": "in combn with a Titleletter (e.g. DhA)=Commentary (on Dh).",
-  "type": "grammatical term"
- },
- {
-  "abbr": "abl.",
-  "text": "ablative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "abs.",
-  "text": "absolute(ly)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "abstr.",
-  "text": "abstract",
-  "type": "grammatical term"
- },
- {
-  "abbr": "acc.",
-  "text": "accusative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "act.",
-  "text": "active",
-  "type": "grammatical term"
- },
- {
-  "abbr": "add.",
-  "text": "addition",
-  "type": "grammatical term"
- },
- {
-  "abbr": "adj.",
-  "text": "adjective",
-  "type": "grammatical term"
- },
- {
-  "abbr": "adv.",
-  "text": "adverb",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Ags.",
-  "text": "Anglo-Saxon",
-  "type": "grammatical term"
- },
- {
-  "abbr": "aor.",
-  "text": "aorist",
-  "type": "grammatical term"
- },
- {
-  "abbr": "appl.",
-  "text": "applied",
-  "type": "grammatical term"
- },
- {
-  "abbr": "art.",
-  "text": "article",
-  "type": "grammatical term"
- },
- {
-  "abbr": "attr.",
-  "text": "attribute",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Av.",
-  "text": "Avesta",
-  "type": "grammatical term"
- },
- {
-  "abbr": "BB",
-  "text": "Burmese MSS",
-  "type": "grammatical term"
- },
- {
-  "abbr": "bef.",
-  "text": "before",
-  "type": "grammatical term"
- },
- {
-  "abbr": "BSk.",
-  "text": "Buddhist Sanskrit",
-  "type": "grammatical term"
- },
- {
-  "abbr": "C(&Cy)",
-  "text": "Commentary (when cited in expln of a Text passage).",
-  "type": "grammatical term"
- },
- {
-  "abbr": "caus.",
-  "text": "causative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "cert.",
-  "text": "certain",
-  "type": "grammatical term"
- },
- {
-  "abbr": "coll.",
-  "text": "collective",
-  "type": "grammatical term"
- },
- {
-  "abbr": "combd, combn",
-  "text": "combined, combination",
-  "type": "grammatical term"
- },
- {
-  "abbr": "comp.",
-  "text": "comparative, comparison, composition",
-  "type": "grammatical term"
- },
- {
-  "abbr": "cond.",
-  "text": "conditional",
-  "type": "grammatical term"
- },
- {
-  "abbr": "cons.",
-  "text": "consonant",
-  "type": "grammatical term"
- },
- {
-  "abbr": "corr.",
-  "text": "correct(ed)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "correl.",
-  "text": "correlation, correlative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "cp.",
-  "text": "compare",
-  "type": "grammatical term"
- },
- {
-  "abbr": "cpd.",
-  "text": "compound",
-  "type": "grammatical term"
- },
- {
-  "abbr": "dat.",
-  "text": "dative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "den.",
-  "text": "denominative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "der.",
-  "text": "derived, derivation",
-  "type": "grammatical term"
- },
- {
-  "abbr": "des.",
-  "text": "desiderative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "dial.",
-  "text": "dialect(ical)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "diff.",
-  "text": "different",
-  "type": "grammatical term"
- },
- {
-  "abbr": "dist.",
-  "text": "distinct, distinguished",
-  "type": "grammatical term"
- },
- {
-  "abbr": "E.",
-  "text": "English",
-  "type": "grammatical term"
- },
- {
-  "abbr": "e.g.",
-  "text": "for instance",
-  "type": "grammatical term"
- },
- {
-  "abbr": "encl.",
-  "text": "enclitic",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ep.",
-  "text": "epithet",
-  "type": "grammatical term"
- },
- {
-  "abbr": "esp.",
-  "text": "especially",
-  "type": "grammatical term"
- },
- {
-  "abbr": "etym.",
-  "text": "etymology",
-  "type": "grammatical term"
- },
- {
-  "abbr": "exc.",
-  "text": "except",
-  "type": "grammatical term"
- },
- {
-  "abbr": "excl.",
-  "text": "exclamation, exclusive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "expl.",
-  "text": "explanation, explained",
-  "type": "grammatical term"
- },
- {
-  "abbr": "f.",
-  "text": "feminine",
-  "type": "grammatical term"
- },
- {
-  "abbr": "fig.",
-  "text": "figurative(ly)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "foll.",
-  "text": "following",
-  "type": "grammatical term"
- },
- {
-  "abbr": "form.",
-  "text": "formation",
-  "type": "grammatical term"
- },
- {
-  "abbr": "fr.",
-  "text": "from",
-  "type": "grammatical term"
- },
- {
-  "abbr": "freq.",
-  "text": "frequently, frequentative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "fut.",
-  "text": "future",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Gall.",
-  "text": "Gallic",
-  "type": "grammatical term"
- },
- {
-  "abbr": "gen.",
-  "text": "genitive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ger.",
-  "text": "gerund",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Ger.",
-  "text": "German",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Goth.",
-  "text": "Gothic",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Gr.",
-  "text": "Greek",
-  "type": "grammatical term"
- },
- {
-  "abbr": "gram.",
-  "text": "grammar, °atical",
-  "type": "grammatical term"
- },
- {
-  "abbr": "grd.",
-  "text": "gerundive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ibid.",
-  "text": "at the same passage",
-  "type": "grammatical term"
- },
- {
-  "abbr": "id.",
-  "text": "the same",
-  "type": "grammatical term"
- },
- {
-  "abbr": "id.p.",
-  "text": "identical passage",
-  "type": "grammatical term"
- },
- {
-  "abbr": "i.e.",
-  "text": "that is",
-  "type": "grammatical term"
- },
- {
-  "abbr": "i.g.",
-  "text": "in general",
-  "type": "grammatical term"
- },
- {
-  "abbr": "imper.",
-  "text": "imperative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "impers.",
-  "text": "impersonal",
-  "type": "grammatical term"
- },
- {
-  "abbr": "impf.",
-  "text": "imperfect",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Ind.",
-  "text": "Index",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ind.",
-  "text": "indicative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "indecl.",
-  "text": "indeclinable",
-  "type": "grammatical term"
- },
- {
-  "abbr": "indef.",
-  "text": "indefinite",
-  "type": "grammatical term"
- },
- {
-  "abbr": "inf.",
-  "text": "infinitive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "instr.",
-  "text": "instrumental",
-  "type": "grammatical term"
- },
- {
-  "abbr": "interr.",
-  "text": "interrogative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "intrs.",
-  "text": "intransitive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "iter.",
-  "text": "iterative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Lat.",
-  "text": "Latin",
-  "type": "grammatical term"
- },
- {
-  "abbr": "l.c.",
-  "text": "loco citato",
-  "type": "grammatical term"
- },
- {
-  "abbr": "lit.",
-  "text": "literal(ly), literary",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Lit.",
-  "text": "Lithuanian",
-  "type": "grammatical term"
- },
- {
-  "abbr": "loc.",
-  "text": "locative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "m.",
-  "text": "masculine",
-  "type": "grammatical term"
- },
- {
-  "abbr": "med.",
-  "text": "medium (middle)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "N.",
-  "text": "Name",
-  "type": "grammatical term"
- },
- {
-  "abbr": "n.",
-  "text": "noun, note",
-  "type": "grammatical term"
- },
- {
-  "abbr": "nom.",
-  "text": "nominative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Np.",
-  "text": "Name of person",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Npl.",
-  "text": "Name of place",
-  "type": "grammatical term"
- },
- {
-  "abbr": "nt.",
-  "text": "neuter",
-  "type": "grammatical term"
- },
- {
-  "abbr": "num.",
-  "text": "numeral",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Obulg.",
-  "text": "Old-bulgarian",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Ohg.",
-  "text": "Old-high-german",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Oicel.",
-  "text": "Old-icelandic",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Oir.",
-  "text": "Old-irish",
-  "type": "grammatical term"
- },
- {
-  "abbr": "onom.",
-  "text": "onomatopoetic",
-  "type": "grammatical term"
- },
- {
-  "abbr": "opp.",
-  "text": "opposed, opposite",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ord.",
-  "text": "ordinal, ordinary",
-  "type": "grammatical term"
- },
- {
-  "abbr": "orig.",
-  "text": "original(ly)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "P.",
-  "text": "Pāli",
-  "type": "grammatical term"
- },
- {
-  "abbr": "part.",
-  "text": "particle",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pass.",
-  "text": "passive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "perf.",
-  "text": "perfect",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pers.",
-  "text": "personal",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pl.",
-  "text": "plural",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pop.",
-  "text": "popular",
-  "type": "grammatical term"
- },
- {
-  "abbr": "poss.",
-  "text": "possessive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pot.",
-  "text": "potential",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pp.",
-  "text": "past participle",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ppr.",
-  "text": "present participle",
-  "type": "grammatical term"
- },
- {
-  "abbr": "prec.",
-  "text": "preceding",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pred.",
-  "text": "predicative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pref.",
-  "text": "prefix",
-  "type": "grammatical term"
- },
- {
-  "abbr": "prep.",
-  "text": "preposition",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pres.",
-  "text": "present",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pret.",
-  "text": "preterite",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Prk.",
-  "text": "Prākrit",
-  "type": "grammatical term"
- },
- {
-  "abbr": "prob.",
-  "text": "probably",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pron.",
-  "text": "pronoun",
-  "type": "grammatical term"
- },
- {
-  "abbr": "pt.",
-  "text": "part",
-  "type": "grammatical term"
- },
- {
-  "abbr": "PTS.",
-  "text": "Pāli Text Society",
-  "type": "grammatical term"
- },
- {
-  "abbr": "q.v.",
-  "text": "quod vide (which see)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ref.",
-  "text": "reference, referred",
-  "type": "grammatical term"
- },
- {
-  "abbr": "refl.",
-  "text": "reflexive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "rel.",
-  "text": "relation, relative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "sep.",
-  "text": "separate(ly)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "sg.",
-  "text": "singular",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Sk.",
-  "text": "Sanskrit",
-  "type": "grammatical term"
- },
- {
-  "abbr": "sq.",
-  "text": "and following",
-  "type": "grammatical term"
- },
- {
-  "abbr": "SS.",
-  "text": "Singhalese MSS.",
-  "type": "grammatical term"
- },
- {
-  "abbr": "ster.",
-  "text": "stereotype",
-  "type": "grammatical term"
- },
- {
-  "abbr": "suff.",
-  "text": "suffix",
-  "type": "grammatical term"
- },
- {
-  "abbr": "sup.",
-  "text": "superlative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "s.v.",
-  "text": "sub voce (under the word mentioned)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "syn.",
-  "text": "synonym(ous)",
-  "type": "grammatical term"
- },
- {
-  "abbr": "T.",
-  "text": "Text",
-  "type": "grammatical term"
- },
- {
-  "abbr": "trans.",
-  "text": "transitive",
-  "type": "grammatical term"
- },
- {
-  "abbr": "trsl.",
-  "text": "translated, translation",
-  "type": "grammatical term"
- },
- {
-  "abbr": "t.t.",
-  "text": "technical term",
-  "type": "grammatical term"
- },
- {
-  "abbr": "t.t.g.",
-  "text": "technical term in grammar",
-  "type": "grammatical term"
- },
- {
-  "abbr": "v.",
-  "text": "verse",
-  "type": "grammatical term"
- },
- {
-  "abbr": "var.",
-  "text": "variant, various",
-  "type": "grammatical term"
- },
- {
-  "abbr": "var. lect.",
-  "text": "various reading",
-  "type": "grammatical term"
- },
- {
-  "abbr": "voc.",
-  "text": "vocative",
-  "type": "grammatical term"
- },
- {
-  "abbr": "Wtb.",
-  "text": "Wörterbuch",
-  "type": "grammatical term"
- },
- {
-  "abbr": "*(s)uel",
-  "text": "indicates a (reconstructed or conjectured) Indogermanic root.",
-  "type": "typographical"
- },
- {
-  "abbr": "*Sk",
-  "text": "means, that the Sanskrit word is constructed after the Pali word; or as Sk. form is only found in lexicographical lists.",
-  "type": "typographical"
- },
- {
-  "abbr": "â",
-  "text": "the cap over a vowel indicates that the a is the result ofa syncope a + a (e.g. khuddânukhudda), whereas ā represents the proper ā, either pure or contracted with a preceding a (khīṇāsava = khīṇa + āsava).",
-  "type": "typographical"
- },
- {
-  "abbr": "°",
-  "text": "represents the head-word either as first (°—) or second (—°) part ofa compound; sometimes also an easily supplemented part of a word.",
-  "type": "typographical"
- },
- {
-  "abbr": ">",
-  "text": "indicates an etymological relation or line ofdevelopment between the words mentioned.",
-  "type": "typographical"
- },
- {
-  "abbr": "∼ ",
-  "text": "means \"at similar\" or \"at identical, parallel passages\".",
-  "type": "typographical"
- },
- {
-  "abbr": "≈",
-  "text": "means \"at similar\" or \"at identical, parallel passages\".",
-  "type": "typographical"
- }
+  {
+    "abbr": "A",
+    "text": "Anguttara",
+    "type": "book"
+  },
+  {
+    "abbr": "Abhp",
+    "text": "Abhidhānappadīpikā",
+    "type": "book"
+  },
+  {
+    "abbr": "Ap",
+    "text": "Apadāna",
+    "type": "book"
+  },
+  {
+    "abbr": "Av. Ś.",
+    "text": "Avadāna-śataka",
+    "type": "book"
+  },
+  {
+    "abbr": "Bdhd",
+    "text": "Buddhadatta",
+    "type": "book"
+  },
+  {
+    "abbr": "Bu",
+    "text": "Buddha-vaṃsa",
+    "type": "book"
+  },
+  {
+    "abbr": "Cp",
+    "text": "Cariyā-piṭaka",
+    "type": "book"
+  },
+  {
+    "abbr": "Cpd",
+    "text": "Compendium",
+    "type": "book"
+  },
+  {
+    "abbr": "D",
+    "text": "Dīgha",
+    "type": "book"
+  },
+  {
+    "abbr": "Dāvs",
+    "text": "Dāṭhā-vaṃsa",
+    "type": "book"
+  },
+  {
+    "abbr": "Dh",
+    "text": "Dhammapada",
+    "type": "book"
+  },
+  {
+    "abbr": "Dhs",
+    "text": "Dhammasangaṇi",
+    "type": "book"
+  },
+  {
+    "abbr": "Dhs trsl.",
+    "text": "Atthasālinī",
+    "type": "book"
+  },
+  {
+    "abbr": "Dial.",
+    "text": "Dialogues",
+    "type": "book"
+  },
+  {
+    "abbr": "Divy",
+    "text": "Divyâvadāna",
+    "type": "book"
+  },
+  {
+    "abbr": "Dpvs",
+    "text": "Dīpavaṃsa",
+    "type": "book"
+  },
+  {
+    "abbr": "It",
+    "text": "Itivuttaka",
+    "type": "book"
+  },
+  {
+    "abbr": "J",
+    "text": "Jātaka",
+    "type": "book"
+  },
+  {
+    "abbr": "J.A.O.S.",
+    "text": "Journal Amer. Or. Soc",
+    "type": "book"
+  },
+  {
+    "abbr": "J.As.",
+    "text": "Journal Asiatique",
+    "type": "book"
+  },
+  {
+    "abbr": "J.P.T.S.",
+    "text": "Journal Pāli Text Soc",
+    "type": "book"
+  },
+  {
+    "abbr": "J.R.A.S.",
+    "text": "Journal Royal Asiatic Soc",
+    "type": "book"
+  },
+  {
+    "abbr": "Jtm",
+    "text": "Jātakamālā",
+    "type": "book"
+  },
+  {
+    "abbr": "Kacc",
+    "text": "Kaccāyana",
+    "type": "book"
+  },
+  {
+    "abbr": "Kh",
+    "text": "Khuddakapāṭha",
+    "type": "book"
+  },
+  {
+    "abbr": "KS",
+    "text": "Kindred Sayings",
+    "type": "book"
+  },
+  {
+    "abbr": "Kvu",
+    "text": "Kathāvatthu",
+    "type": "book"
+  },
+  {
+    "abbr": "KZ",
+    "text": "Kuhn's Zeitschrift",
+    "type": "book"
+  },
+  {
+    "abbr": "Lal. V.",
+    "text": "Lalita Vistara",
+    "type": "book"
+  },
+  {
+    "abbr": "M",
+    "text": "Majjhima",
+    "type": "book"
+  },
+  {
+    "abbr": "Mhbv",
+    "text": "Mahābodhi-vaṃsa",
+    "type": "book"
+  },
+  {
+    "abbr": "Mhvs",
+    "text": "Mahāvaṃsa",
+    "type": "book"
+  },
+  {
+    "abbr": "Miln",
+    "text": "Milinda-pañha",
+    "type": "book"
+  },
+  {
+    "abbr": "M Vastu",
+    "text": "Mahā-vastu",
+    "type": "book"
+  },
+  {
+    "abbr": "Mvyut",
+    "text": "Mahāvyutpatti",
+    "type": "book"
+  },
+  {
+    "abbr": "Nd1",
+    "text": "Mahāniddesa",
+    "type": "book"
+  },
+  {
+    "abbr": "Nd2",
+    "text": "Cullaniddesa",
+    "type": "book"
+  },
+  {
+    "abbr": "Nett",
+    "text": "Netti-pakaraṇa",
+    "type": "book"
+  },
+  {
+    "abbr": "Pgdp",
+    "text": "Pañcagati-dīpana",
+    "type": "book"
+  },
+  {
+    "abbr": "Ps",
+    "text": "Paṭisambhidā-magga",
+    "type": "book"
+  },
+  {
+    "abbr": "Pug",
+    "text": "Puggala-paññatti",
+    "type": "book"
+  },
+  {
+    "abbr": "Pv",
+    "text": "Petavatthu",
+    "type": "book"
+  },
+  {
+    "abbr": "S",
+    "text": "Saṃyutta",
+    "type": "book"
+  },
+  {
+    "abbr": "SBE",
+    "text": "Sacred Books of the East",
+    "type": "book"
+  },
+  {
+    "abbr": "Sdhp",
+    "text": "Saddhammopāyana",
+    "type": "book"
+  },
+  {
+    "abbr": "Śikṣ",
+    "text": "Śikṣāsamuccaya",
+    "type": "book"
+  },
+  {
+    "abbr": "Sn",
+    "text": "Sutta-nipāta",
+    "type": "book"
+  },
+  {
+    "abbr": "Th1",
+    "text": "Theragāthā",
+    "type": "book"
+  },
+  {
+    "abbr": "Th2",
+    "text": "Therīgāthā",
+    "type": "book"
+  },
+  {
+    "abbr": "Toev.",
+    "text": "Toevoegselen",
+    "type": "book"
+  },
+  {
+    "abbr": "BR.",
+    "text": "Boehtlingk and Roth",
+    "type": "book"
+  },
+  {
+    "abbr": "Dhtm",
+    "text": "Dhātumañjūsa",
+    "type": "book"
+  },
+  {
+    "abbr": "Dhtp",
+    "text": "Dhātupāṭha",
+    "type": "book"
+  },
+  {
+    "abbr": "Ud",
+    "text": "Udāna",
+    "type": "book"
+  },
+  {
+    "abbr": "Vbh",
+    "text": "Vibhanga",
+    "type": "book"
+  },
+  {
+    "abbr": "Vin",
+    "text": "Vinaya",
+    "type": "book"
+  },
+  {
+    "abbr": "Vism",
+    "text": "Visuddhi-magga",
+    "type": "book"
+  },
+  {
+    "abbr": "Vv",
+    "text": "Vimānavatthu",
+    "type": "book"
+  },
+  {
+    "abbr": "A",
+    "text": "in combn with a Titleletter (e.g. DhA)=Commentary (on Dh).",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "abl.",
+    "text": "ablative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "abs.",
+    "text": "absolute(ly)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "abstr.",
+    "text": "abstract",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "acc.",
+    "text": "accusative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "act.",
+    "text": "active",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "add.",
+    "text": "addition",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "adj.",
+    "text": "adjective",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "adv.",
+    "text": "adverb",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Ags.",
+    "text": "Anglo-Saxon",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "aor.",
+    "text": "aorist",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "appl.",
+    "text": "applied",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "art.",
+    "text": "article",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "attr.",
+    "text": "attribute",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Av.",
+    "text": "Avesta",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "BB",
+    "text": "Burmese MSS",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "bef.",
+    "text": "before",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "BSk.",
+    "text": "Buddhist Sanskrit",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "C(&Cy)",
+    "text": "Commentary (when cited in expln of a Text passage).",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "caus.",
+    "text": "causative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "cert.",
+    "text": "certain",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "coll.",
+    "text": "collective",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "combd, combn",
+    "text": "combined, combination",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "comp.",
+    "text": "comparative, comparison, composition",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "cond.",
+    "text": "conditional",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "cons.",
+    "text": "consonant",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "corr.",
+    "text": "correct(ed)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "correl.",
+    "text": "correlation, correlative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "cp.",
+    "text": "compare",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "cpd.",
+    "text": "compound",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "dat.",
+    "text": "dative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "den.",
+    "text": "denominative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "der.",
+    "text": "derived, derivation",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "des.",
+    "text": "desiderative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "dial.",
+    "text": "dialect(ical)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "diff.",
+    "text": "different",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "dist.",
+    "text": "distinct, distinguished",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "E.",
+    "text": "English",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "e.g.",
+    "text": "for instance",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "encl.",
+    "text": "enclitic",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ep.",
+    "text": "epithet",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "esp.",
+    "text": "especially",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "etym.",
+    "text": "etymology",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "exc.",
+    "text": "except",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "excl.",
+    "text": "exclamation, exclusive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "expl.",
+    "text": "explanation, explained",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "f.",
+    "text": "feminine",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "fig.",
+    "text": "figurative(ly)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "foll.",
+    "text": "following",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "form.",
+    "text": "formation",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "fr.",
+    "text": "from",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "freq.",
+    "text": "frequently, frequentative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "fut.",
+    "text": "future",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Gall.",
+    "text": "Gallic",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "gen.",
+    "text": "genitive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ger.",
+    "text": "gerund",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Ger.",
+    "text": "German",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Goth.",
+    "text": "Gothic",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Gr.",
+    "text": "Greek",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "gram.",
+    "text": "grammar, °atical",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "grd.",
+    "text": "gerundive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ibid.",
+    "text": "at the same passage",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "id.",
+    "text": "the same",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "id.p.",
+    "text": "identical passage",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "i.e.",
+    "text": "that is",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "i.g.",
+    "text": "in general",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "imper.",
+    "text": "imperative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "impers.",
+    "text": "impersonal",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "impf.",
+    "text": "imperfect",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Ind.",
+    "text": "Index",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ind.",
+    "text": "indicative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "indecl.",
+    "text": "indeclinable",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "indef.",
+    "text": "indefinite",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "inf.",
+    "text": "infinitive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "instr.",
+    "text": "instrumental",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "interr.",
+    "text": "interrogative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "intrs.",
+    "text": "intransitive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "iter.",
+    "text": "iterative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Lat.",
+    "text": "Latin",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "l.c.",
+    "text": "loco citato",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "lit.",
+    "text": "literal(ly), literary",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Lit.",
+    "text": "Lithuanian",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "loc.",
+    "text": "locative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "m.",
+    "text": "masculine",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "med.",
+    "text": "medium (middle)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "N.",
+    "text": "Name",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "n.",
+    "text": "noun, note",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "nom.",
+    "text": "nominative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Np.",
+    "text": "Name of person",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Npl.",
+    "text": "Name of place",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "nt.",
+    "text": "neuter",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "num.",
+    "text": "numeral",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Obulg.",
+    "text": "Old-bulgarian",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Ohg.",
+    "text": "Old-high-german",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Oicel.",
+    "text": "Old-icelandic",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Oir.",
+    "text": "Old-irish",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "onom.",
+    "text": "onomatopoetic",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "opp.",
+    "text": "opposed, opposite",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ord.",
+    "text": "ordinal, ordinary",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "orig.",
+    "text": "original(ly)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "P.",
+    "text": "Pāli",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "part.",
+    "text": "particle",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pass.",
+    "text": "passive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "perf.",
+    "text": "perfect",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pers.",
+    "text": "personal",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pl.",
+    "text": "plural",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pop.",
+    "text": "popular",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "poss.",
+    "text": "possessive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pot.",
+    "text": "potential",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pp.",
+    "text": "past participle",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ppr.",
+    "text": "present participle",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "prec.",
+    "text": "preceding",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pred.",
+    "text": "predicative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pref.",
+    "text": "prefix",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "prep.",
+    "text": "preposition",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pres.",
+    "text": "present",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pret.",
+    "text": "preterite",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Prk.",
+    "text": "Prākrit",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "prob.",
+    "text": "probably",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pron.",
+    "text": "pronoun",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "pt.",
+    "text": "part",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "PTS.",
+    "text": "Pāli Text Society",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "q.v.",
+    "text": "quod vide (which see)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ref.",
+    "text": "reference, referred",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "refl.",
+    "text": "reflexive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "rel.",
+    "text": "relation, relative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "sep.",
+    "text": "separate(ly)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "sg.",
+    "text": "singular",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Sk.",
+    "text": "Sanskrit",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "sq.",
+    "text": "and following",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "SS.",
+    "text": "Singhalese MSS.",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "ster.",
+    "text": "stereotype",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "suff.",
+    "text": "suffix",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "sup.",
+    "text": "superlative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "s.v.",
+    "text": "sub voce (under the word mentioned)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "syn.",
+    "text": "synonym(ous)",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "T.",
+    "text": "Text",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "trans.",
+    "text": "transitive",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "trsl.",
+    "text": "translated, translation",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "t.t.",
+    "text": "technical term",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "t.t.g.",
+    "text": "technical term in grammar",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "v.",
+    "text": "verse",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "var.",
+    "text": "variant, various",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "var. lect.",
+    "text": "various reading",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "voc.",
+    "text": "vocative",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "Wtb.",
+    "text": "Wörterbuch",
+    "type": "grammatical term"
+  },
+  {
+    "abbr": "*(s)uel",
+    "text": "indicates a (reconstructed or conjectured) Indogermanic root.",
+    "type": "typographical"
+  },
+  {
+    "abbr": "*Sk",
+    "text": "means, that the Sanskrit word is constructed after the Pali word; or as Sk. form is only found in lexicographical lists.",
+    "type": "typographical"
+  },
+  {
+    "abbr": "â",
+    "text": "the cap over a vowel indicates that the a is the result ofa syncope a + a (e.g. khuddânukhudda), whereas ā represents the proper ā, either pure or contracted with a preceding a (khīṇāsava = khīṇa + āsava).",
+    "type": "typographical"
+  },
+  {
+    "abbr": "°",
+    "text": "represents the head-word either as first (°—) or second (—°) part ofa compound; sometimes also an easily supplemented part of a word.",
+    "type": "typographical"
+  },
+  {
+    "abbr": ">",
+    "text": "indicates an etymological relation or line ofdevelopment between the words mentioned.",
+    "type": "typographical"
+  },
+  {
+    "abbr": "∼ ",
+    "text": "means \"at similar\" or \"at identical, parallel passages\".",
+    "type": "typographical"
+  },
+  {
+    "abbr": "≈",
+    "text": "means \"at similar\" or \"at identical, parallel passages\".",
+    "type": "typographical"
+  }
 ]

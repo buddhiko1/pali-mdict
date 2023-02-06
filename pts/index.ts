@@ -9,14 +9,14 @@ import { FILENAME } from "../config";
 
 export class Maker extends MakerBase {
   constructor(conf: IDictConf) {
-    let jsonFileGenerator = new GeneratorByDownload(conf);
+    const jsonFileGenerator = new GeneratorByDownload(conf);
     super(conf, jsonFileGenerator);
   }
 
   protected _generateEntryHtml(entry: IPts): string {
     entry.text = this._rmRedundanceDtTag(entry);
-    let isSingleDdEntry = this._isSingleDdEntry(entry);
-    let entryGrammarHtml = isSingleDdEntry
+    const isSingleDdEntry = this._isSingleDdEntry(entry);
+    const entryGrammarHtml = isSingleDdEntry
       ? this._getEntryGrammarHtml(entry)
       : "";
     const data = {
@@ -34,10 +34,10 @@ export class Maker extends MakerBase {
 
     //
     const tagRegexp = /<dt>.*?<\/dt>/g;
-    let matchedArray = result.match(tagRegexp);
+    const matchedArray = result.match(tagRegexp);
     if (matchedArray?.length === 1) {
       const aliasRegexp = />([^<>]+)</g;
-      let alias = [...matchedArray[0].matchAll(aliasRegexp)].map(
+      const alias = [...matchedArray[0].matchAll(aliasRegexp)].map(
         (item) => item[1]
       );
       if (alias[0].toLowerCase() === entry.word.toLowerCase()) {
@@ -50,28 +50,28 @@ export class Maker extends MakerBase {
 
   private _getEntryGrammarHtml(entry: IPts): string {
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
-    let matchedArray = [...entry.text.matchAll(ddRegexp)];
-    let [grammarHtml, _] = this._extractDdGrammarHtml(matchedArray[0][0]);
+    const matchedArray = [...entry.text.matchAll(ddRegexp)];
+    const [grammarHtml, _] = this._extractDdGrammarHtml(matchedArray[0][0]);
     return grammarHtml;
   }
 
   private _isSingleDdEntry(entry: IPts): boolean {
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
-    let matchedArray = [...entry.text.matchAll(ddRegexp)];
+    const matchedArray = [...entry.text.matchAll(ddRegexp)];
     return matchedArray.length === 1;
   }
 
   private _generateTextHtml(entry: IPts, isSingleDdEntry: boolean): string {
     let result = "";
     const ddRegexp = /<dd(?: id='[^>]*-(?<index>\d)')?>.*?<\/dd>/g;
-    let matchedArray = [...entry.text.matchAll(ddRegexp)];
-    for (let [index, dd] of matchedArray.entries()) {
+    const matchedArray = [...entry.text.matchAll(ddRegexp)];
+    for (const [index, dd] of matchedArray.entries()) {
       let [ddGrammarHtml, ddHtml] = this._extractDdGrammarHtml(dd[0]);
       ddHtml = this._replaceKeywordLink(ddHtml);
       if (isSingleDdEntry) {
         result += ddHtml;
       } else {
-        let ddTitleHtml = `<div class='subTitle'><span class='word'>${
+        const ddTitleHtml = `<div class='subTitle'><span class='word'>${
           entry.word
         }<sup>${
           dd?.groups?.index ?? index + 1
@@ -84,9 +84,9 @@ export class Maker extends MakerBase {
 
   private _extractDdGrammarHtml(ddHtml: string): [string, string] {
     const regexp = /<span class='grammar'>(?<grammar>.*?)<\/span>/g;
-    let matchedArray = [...ddHtml.matchAll(regexp)];
+    const matchedArray = [...ddHtml.matchAll(regexp)];
     if (matchedArray.length) {
-      let grammarHtml = `<span class='grammar'>( ${matchedArray[0].groups?.grammar} )</span>`;
+      const grammarHtml = `<span class='grammar'>( ${matchedArray[0].groups?.grammar} )</span>`;
       return [grammarHtml, ddHtml.replace(regexp, "")];
     }
     return ["", ddHtml];
