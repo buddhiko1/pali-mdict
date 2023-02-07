@@ -32,6 +32,7 @@ export abstract class MakerBase {
     this._makeTitleFile(forEudic);
     this._makeDescriptionFile();
     await this._makeMdxFile();
+    this._makeAssets();
     this.clean();
     console.info(`${this.conf.shortName} mdict created!\n`);
   }
@@ -105,6 +106,17 @@ export abstract class MakerBase {
     } catch (e) {
       console.log(`error: ${e}`);
     }
+  }
+
+  private _makeAssets() {
+    fs.copyFileSync(
+      `${this.conf.assetsDir}/${FILENAME.css}`,
+      `${this.conf.outputDir}/${FILENAME.css}`
+    );
+    fs.copyFileSync(
+      `${this.conf.assetsDir}/${FILENAME.icon}`,
+      `${this.conf.outputDir}/${FILENAME.icon}`
+    );
   }
 
   protected abstract get _jsonFile(): string;

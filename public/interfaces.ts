@@ -7,6 +7,7 @@ export interface IDictConf {
   jsonUrl?: string;
   fullName: string;
   shortName: string;
+  assetsDir: string;
   outputDir: string;
 }
 
@@ -14,6 +15,7 @@ export interface IFileName {
   entryTemplate: string; // layout must compliance with the mdict standard
   json: string; // name of dict's json file
   css: string; // dict stylesheet
+  icon: string; // dict icon image
   txt: string; // for building mdx with mdx-builder
   title: string; // for building mdx with mdx-builder
   description: string; // for building mdx with mdx-builder
