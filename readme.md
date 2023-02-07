@@ -1,4 +1,4 @@
-## Make Pali Mdict
+## Make Pali dictionary
 
 ### Include
 
