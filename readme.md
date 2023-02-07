@@ -5,7 +5,7 @@
 - `pts` : Pali Text Society Pali - English Dictionary
 - `ncped` : New Concise Pali - English Dictionary
 - `dppn` : Dictionary of Pali Proper Names
-- `abbr` : Dictionary of book and grammatical term's abbreviation
+- `abbr` : Abbreviation dictionary of book and grammatical's term
 
 ### Preview
 
